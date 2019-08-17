@@ -1,4 +1,4 @@
-# tetrisArmageddon
+# Tetris Armageddon
 Jest to solowy projekt.
 Wpadłem na pomysł zmiany mechaniki Tetrisa. Pracuję nad jej zrealizowaniem.
 
