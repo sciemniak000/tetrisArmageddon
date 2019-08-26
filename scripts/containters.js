@@ -38,7 +38,11 @@ export class BlackWindow{
         this.clearCanvas();
         if(this.block){
             this.ctx.fillStyle = this.block.getColorOfBlock();
+
+            //??? is that necessary? don't i draw all the things in the loop below?
             this.ctx.fillRect(20, 20, 9, 9);
+            //??? todo
+
             let loc = this.block.getLocations();
             for(let i = 0; i < loc.length; i++){
                 let coords = loc[i];
@@ -115,6 +119,7 @@ export class FifoWindows {
 }
 
 export class GameWindow {
+    //todo no context is added here yet
     constructor(draw_x, draw_y, length, height, block){
         this.area = new Array(10);
         for(let i = 0; i < this.area.length; i++){
@@ -160,7 +165,6 @@ export class GameWindow {
         }
         if(allowed){
             this.block.moveLeft();
-            //draw
         }
     }
 
@@ -184,7 +188,6 @@ export class GameWindow {
         }
         if(allowed){
             this.block.moveRight();
-            //draw
         }
     }
 
@@ -212,8 +215,6 @@ export class GameWindow {
         }
         if(!allowed){
             b.rotateRight();
-        } else {
-            //draw
         }
     }
     blockRotateCounterclockwise(){
@@ -240,8 +241,6 @@ export class GameWindow {
         }
         if(!allowed){
             b.rotateLeft();
-        } else {
-            //draw
         }
     }
 
@@ -269,12 +268,11 @@ export class GameWindow {
     blockMoveDownByOne(){
         if(this.checkIfMoveDownPossible()){
             this.block.decrementHeight();
-            //draw
-            return false;
+            return true;
         } else {
             this.blockWriteToArea();
             this.areaCleanOfFullLines();
-            return true;
+            return false;
         }
     }
 
@@ -284,7 +282,6 @@ export class GameWindow {
         }
         this.blockWriteToArea();
         this.areaCleanOfFullLines();
-        //draw
     }
 
     blockWriteToArea(){
@@ -314,9 +311,6 @@ export class GameWindow {
                 }
                 counter++;
             }
-        }
-        if(counter){
-            //draw
         }
     }
 
@@ -366,18 +360,18 @@ export class GameWindow {
         }
     }
 
-    createCanvas(){
-        let canv = document.createElement("canvas");
-        canv.id = "game_area";
-        canv.width = 279;
-        canv.height = 559;
-        canv.style.border = "1px solid #d3d3d3";
-        canv.style.backgroundColor = "#000000";
-        canv.style.marginRight = "10px";
-        canv.style.marginLeft = "10px";
-        document.body.appendChild(canv);
-        this.ctx = canv.getContext("2d");
-    }
+    // createCanvas(){
+    //     let canv = document.createElement("canvas");
+    //     canv.id = "game_area";
+    //     canv.width = 279;
+    //     canv.height = 559;
+    //     canv.style.border = "1px solid #d3d3d3";
+    //     canv.style.backgroundColor = "#000000";
+    //     canv.style.marginRight = "10px";
+    //     canv.style.marginLeft = "10px";
+    //     document.body.appendChild(canv);
+    //     this.ctx = canv.getContext("2d");
+    // }
 
     clearCanvas(){
         this.ctx.clearRect(0, 0, 279, 559);
