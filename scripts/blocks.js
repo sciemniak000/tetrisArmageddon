@@ -1,3 +1,13 @@
+import {
+    color_of_block1,
+    color_of_block2,
+    color_of_block3,
+    color_of_block4,
+    color_of_block5,
+    color_of_block6,
+    color_of_block7
+} from "./variables.js";
+
 function clone(obj) {
     if (null == obj || "object" != typeof obj) return obj;
     var copy = obj.constructor();
@@ -56,7 +66,7 @@ export class Block1 extends Block{
         }
     };
     getColorOfBlock(){
-        return "#ff7c00";
+        return color_of_block1;
     };
 
     getTypeOfBlock(){
@@ -89,7 +99,7 @@ export class Block2 extends Block{
         }
     };
     getColorOfBlock(){
-        return "#0000ff";
+        return color_of_block2;
     };
 
     getTypeOfBlock(){
@@ -117,7 +127,7 @@ export class Block3 extends Block{
         this.rotation = 0;
     };
     getColorOfBlock(){
-        return "#ffff00";
+        return color_of_block3;
     };
     getTypeOfBlock(){
         return 3;
@@ -146,7 +156,7 @@ export class Block4 extends Block{
         }
     };
     getColorOfBlock(){
-        return "#ff00ff";
+        return color_of_block4;
     };
     getTypeOfBlock(){
         return 4;
@@ -177,7 +187,7 @@ export class Block5 extends Block{
         }
     };
     getColorOfBlock(){
-        return "#00bfff";
+        return color_of_block5;
     };
     getTypeOfBlock(){
         return 5;
@@ -206,7 +216,7 @@ export class Block6 extends Block{
         }
     };
     getColorOfBlock(){
-        return "#00cc00";
+        return color_of_block6;
     };
     getTypeOfBlock(){
         return 6;
@@ -235,7 +245,7 @@ export class Block7 extends Block {
         }
     };
     getColorOfBlock(){
-        return "#ff0000";
+        return color_of_block7;
     };
     getTypeOfBlock(){
         return 7;

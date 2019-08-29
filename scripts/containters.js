@@ -1,12 +1,8 @@
 import {Block1, Block2, Block3, Block4, Block5, Block6, Block7} from "./blocks.js";
 
 export class BlackWindow{
-    constructor(draw_x, draw_y, size, id){
-        this.x = draw_x;
-        this.y = draw_y;
-        this.size = size;
-        this.id = id;
-        this.createCanvas();
+    constructor(context){
+        this.ctx = context;
     }
 
     setBlock(block){
@@ -17,21 +13,8 @@ export class BlackWindow{
         return this.block;
     }
 
-    createCanvas(){
-        let canv = document.createElement("canvas");
-        canv.id = this.id;
-        canv.width = this.size;
-        canv.height = this.size;
-        canv.style.border = "1px solid #d3d3d3";
-        canv.style.backgroundColor = "#000000";
-        canv.style.marginRight = "10px";
-        canv.style.marginLeft = "10px";
-        document.body.appendChild(canv);
-        this.ctx = canv.getContext("2d");
-    }
-
     clearCanvas(){
-        this.ctx.clearRect(0, 0, this.size, this.size);
+        this.ctx.clearRect(0, 0, 50, 50);
     }
 
     drawCanvas(){
@@ -100,14 +83,8 @@ export class FifoWindows {
             case 7:
                 return new Block7(0, 0);
             default:
-                console.log("something's fucked up :) the random block is a non-existing block :(")
+                console.log("something's fucked up :) the random block is a non-existing block :(");
                 return new Block3(0, 0);
-        }
-    }
-
-    createFIFO(){
-        for(let i = 0; i < this.windows.length; i++){
-            this.windows[i].createCanvas();
         }
     }
 
@@ -119,14 +96,13 @@ export class FifoWindows {
 }
 
 export class GameWindow {
-    //todo no context is added here yet
-    constructor(draw_x, draw_y, length, height, block){
+    constructor(context){
         this.area = new Array(10);
         for(let i = 0; i < this.area.length; i++){
             this.area[i] = new Array(20).fill(0);
         }
         this.block = undefined;
-        this.createCanvas();
+        this.ctx = context;
     }
 
     setBlock(block){
@@ -292,6 +268,11 @@ export class GameWindow {
         }
     }
 
+    blockResetPosition(){
+        this.block.x = 6;
+        this.block.y = 17;
+    }
+
     areaCleanOfFullLines(){
         let found = false;
         let counter = 0;
@@ -359,19 +340,6 @@ export class GameWindow {
             }
         }
     }
-
-    // createCanvas(){
-    //     let canv = document.createElement("canvas");
-    //     canv.id = "game_area";
-    //     canv.width = 279;
-    //     canv.height = 559;
-    //     canv.style.border = "1px solid #d3d3d3";
-    //     canv.style.backgroundColor = "#000000";
-    //     canv.style.marginRight = "10px";
-    //     canv.style.marginLeft = "10px";
-    //     document.body.appendChild(canv);
-    //     this.ctx = canv.getContext("2d");
-    // }
 
     clearCanvas(){
         this.ctx.clearRect(0, 0, 279, 559);

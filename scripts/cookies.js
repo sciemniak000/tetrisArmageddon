@@ -13,5 +13,5 @@ function getTheAgreementForCookies() {
         document.cookie = 'agreed=true';
     }
 
-    return agreement
+    return agreement;
 }

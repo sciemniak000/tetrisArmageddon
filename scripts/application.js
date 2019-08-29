@@ -1,3 +1,7 @@
+import {GameWindow, FifoWindows, BlackWindow} from "./containters.js";
+import {GameContainer} from "./game.js";
+import {TetrisTimer} from "./timer.js";
+
 export class ApplicationContainer{
     constructor(){
         let div = document.createElement("div");
@@ -15,6 +19,9 @@ export class ApplicationContainer{
         this.div2.style.marginLeft = "auto";
         this.div2.style.position = "relative";
         div.appendChild(this.div2);
+
+        this.createCanvasStructure();
+        this.createGameLogic();
     }
 
     createGameWindow(){
@@ -33,7 +40,6 @@ export class ApplicationContainer{
         // canv.style.display = "block";
 
         this.div2.appendChild(canv);
-        this.canv_game = canv;
     }
 
     createBlackWindowCanvas(id){
@@ -46,18 +52,18 @@ export class ApplicationContainer{
         return canv;
     }
 
-    createTimerCanvas(){
-        this.timer_canvas = document.createElement("canvas");
-        this.timer_canvas.id = "timer_area";
-        this.timer_canvas.width = 100;
-        this.timer_canvas.height = 100;
-        this.timer_canvas.style.border = "1px solid #d3d3d3";
-        this.timer_canvas.style.backgroundColor = "#000000";
+    createTimerWindow(){
+        let timer_canvas = document.createElement("canvas");
+        timer_canvas.id = "timer_area";
+        timer_canvas.width = 100;
+        timer_canvas.height = 100;
+        timer_canvas.style.border = "1px solid #d3d3d3";
+        timer_canvas.style.backgroundColor = "#000000";
         // this.timer_canvas.style.backgroundColor = "maroon";
-        this.timer_canvas.style.position = "absolute";
-        this.timer_canvas.style.bottom = "-559px";
-        this.timer_canvas.style.left = "-250px";
-        this.div2.appendChild(this.timer_canvas);
+        timer_canvas.style.position = "absolute";
+        timer_canvas.style.bottom = "-559px";
+        timer_canvas.style.left = "-250px";
+        this.div2.appendChild(timer_canvas);
     }
 
     createSwitchWindow(){
@@ -99,5 +105,29 @@ export class ApplicationContainer{
         w5.style.right = "-200px";
         w5.style.top = "250px";
         this.div2.appendChild(w5);
+    }
+
+    createCanvasStructure(){
+        this.createGameWindow();
+        this.createSwitchWindow();
+        this.createTimerWindow();
+        this.createFifoWindows();
+    }
+
+    createGameLogic(){
+        let g = new GameWindow(document.getElementById("game_area").getContext("2d"));
+
+        let f = new FifoWindows();
+        f.addWindow(new BlackWindow(document.getElementById("fifo1").getContext("2d")));
+        f.addWindow(new BlackWindow(document.getElementById("fifo2").getContext("2d")));
+        f.addWindow(new BlackWindow(document.getElementById("fifo3").getContext("2d")));
+        f.addWindow(new BlackWindow(document.getElementById("fifo4").getContext("2d")));
+        f.addWindow(new BlackWindow(document.getElementById("fifo5").getContext("2d")));
+
+        let s = new BlackWindow(document.getElementById("switch").getContext("2d"));
+
+        let t = new TetrisTimer(document.getElementById("timer_area").getContext("2d"));
+
+        this.game = new GameContainer(g, f, s, t);
     }
 }

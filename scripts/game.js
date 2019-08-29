@@ -7,78 +7,61 @@ export class GameContainer {
         this.switch_block_possible = true;
         this.level = 0;
         this.intervl = undefined;
-        // this.createTimerCanvas();
-        // this.createSwitchCanvas(50);
     }
-
-
-    //
-    // createSwitchCanvas(size){
-    //     this.switch_canvas = document.createElement("canvas");
-    //     this.switch_canvas.id = "switch_area";
-    //     this.switch_canvas.width = size;
-    //     this.switch_canvas.height = size;
-    //     this.switch_canvas.style.border = "1px solid #d3d3d3";
-    //     this.switch_canvas.style.backgroundColor = "#000000";
-    //     // this.timer_canvas.style.backgroundColor = "maroon";
-    //     this.switch_canvas.style.marginRight = "10px";
-    //     this.switch_canvas.style.marginLeft = "10px";
-    //     document.body.appendChild(this.switch_canvas);
-    // }
-
 
     shiftBlock(){
         if(this.switch_block_possible){
             let temporary = this.game.getBlock();
             if(this.s_window.getBlock()){
                 this.game.setBlock(this.s_window.getBlock());
+                this.game.blockResetPosition();
             } else {
-                this.game.setBlock(this.fifo.nextBlock());
-                //todo draw fifo
+                this.nextBlock();
+                this.fifo.drawFIFO();
             }
             this.s_window.setBlock(temporary);
             this.switch_block_possible = false;
 
-            //todo draw game and switch
+            this.game.drawCanvas();
+            this.s_window.drawCanvas();
         }
     }
 
     moveBlockRight(){
         this.game.blockMoveRight();
-        //todo draw game
+        this.game.drawCanvas();
     }
 
     moveBlockLeft(){
         this.game.blockMoveLeft();
-        //todo draw game
+        this.game.drawCanvas();
     }
 
     rotateBlockClockwise(){
         this.game.blockRotateClockwise();
-        //todo draw game
+        this.game.drawCanvas();
     }
 
     rotateBlockCounterclockwise(){
         this.game.blockRotateCounterclockwise();
-        //todo draw game
+        this.game.drawCanvas();
     }
 
     nextBlock(){
         this.game.setBlock(this.fifo.nextBlock());
+        this.game.blockResetPosition();
+        this.switch_block_possible = true;
     }
 
     moveBlockDownByAll(){
         this.game.blockMoveDownByAll();
         if(!this.checkIfItsTheEnd()){
             this.nextBlock();
-            //todo draw the fifo
+            this.fifo.drawFIFO();
         }
-        //todo draw game
+        this.game.drawCanvas();
 
-        //todo todo todo
-        //todo if there is a problem with events changing the state of the game after it's finished but before the
-        //todo finishing screen appears, add a flag and check it in a drawing function
-        //todo todo todo
+        //todo add flag that checks if drawing possible to stop it from happening at the end of the game
     }
 
     //todo when placing the block on the game its positions should be reset
@@ -87,11 +70,13 @@ export class GameContainer {
     checkIfItsTheEnd(){
         if(this.game.areaCheckIfLost()){
             //todo stop the interval decrementing height
+            console.log("lost");
             document.dispatchEvent(new Event("failure"));
             return true;
         }
         if(this.level <= 28 && this.game.areaCheckIfFixed()){
             //todo stop the interval decrementing height
+            console.log("fixed");
             document.dispatchEvent(new Event("success"));
             return true;
         }
@@ -102,10 +87,10 @@ export class GameContainer {
         if(!this.game.blockMoveDownByOne()){
             if(!this.checkIfItsTheEnd()){
                 this.nextBlock();
-                //todo draw the fifo
+                this.fifo.drawFIFO();
             }
-            //todo draw game
         }
+        this.game.drawCanvas();
     }
 
     //todo victory and defeat functions all having their counterparts in this.game
