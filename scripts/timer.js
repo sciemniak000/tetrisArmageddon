@@ -4,7 +4,7 @@ import {
     timer_font_color,
     timer_font_position_x, timer_font_position_y,
     timer_font_style
-} from "./variables";
+} from "./configuration.js";
 
 export class TetrisTimer {
     constructor(context){

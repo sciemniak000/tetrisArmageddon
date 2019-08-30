@@ -12,7 +12,7 @@ import {
     game_canvas_height,
     game_canvas_width, game_grid_color,
     game_higher_part_color
-} from "./variables.js";
+} from "./configuration.js";
 
 export class BlackWindow{
     constructor(context){

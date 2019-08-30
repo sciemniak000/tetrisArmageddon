@@ -23,7 +23,7 @@ import {
     timer_canvas_id,
     timer_canvas_left,
     timer_canvas_width
-} from "./variables.js";
+} from "./configuration.js";
 
 export class ApplicationContainer{
     constructor(){

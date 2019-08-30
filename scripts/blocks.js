@@ -6,7 +6,7 @@ import {
     color_of_block5,
     color_of_block6,
     color_of_block7
-} from "./variables.js";
+} from "./configuration.js";
 
 function clone(obj) {
     if (null == obj || "object" != typeof obj) return obj;
