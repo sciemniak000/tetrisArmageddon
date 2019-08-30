@@ -10,7 +10,7 @@ export class TetrisTimer {
     constructor(context){
         this.distance = 0;
         this.minutes = 0;
-        this.seconds = 10;
+        this.seconds = 0;
         this.ctx = context;
     }
 

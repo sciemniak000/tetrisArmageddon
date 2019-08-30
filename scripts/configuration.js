@@ -24,7 +24,7 @@ export const fifo_canvas_id_5 = "fifo5";
 // sizes of canvases
 export const game_canvas_width = 279;
 export const game_canvas_height = 559;
-export const black_window_size = 50;
+export const black_window_size = 75;
 export const timer_canvas_width = 80;
 export const timer_canvas_height = 30;
 
@@ -41,12 +41,12 @@ export const timer_font_position_y = 23;
 // positioning of canvases
 export const game_canvas_left = "-135px";
 export const timer_canvas_bottom = "-559px";
-export const timer_canvas_left = "-230px";
-export const switch_canvas_left = "-200px";
+export const timer_canvas_left = "155px";
+export const switch_canvas_left = "-225px";
 export const switch_canvas_top = "10px";
-export const fifo_canvas_right = "-200px";
+export const fifo_canvas_right = "-225px";
 export const fifo_canvas_top_top = 10;
-export const fifo_space_between = 10;
+export const fifo_space_between = 20;
 
 // black window drawing of blocks
 export const black_window_central_block_x = 20;
