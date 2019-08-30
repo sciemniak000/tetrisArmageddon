@@ -25,8 +25,8 @@ export const fifo_canvas_id_5 = "fifo5";
 export const game_canvas_width = 279;
 export const game_canvas_height = 559;
 export const black_window_size = 50;
-export const timer_canvas_width = 100;
-export const timer_canvas_height = 100;
+export const timer_canvas_width = 80;
+export const timer_canvas_height = 30;
 
 // styles of canvases
 export const canvas_border_style = "1px solid #d3d3d3";
@@ -35,13 +35,13 @@ export const game_higher_part_color = "#f08080";
 export const game_grid_color = "#d3d3d3";
 export const timer_font_color = "#ffffff";
 export const timer_font_style = "25px Georgia";
-export const timer_font_position_x = 5;
-export const timer_font_position_y = 65;
+export const timer_font_position_x = 12;
+export const timer_font_position_y = 23;
 
 // positioning of canvases
 export const game_canvas_left = "-135px";
 export const timer_canvas_bottom = "-559px";
-export const timer_canvas_left = "-250px";
+export const timer_canvas_left = "-230px";
 export const switch_canvas_left = "-200px";
 export const switch_canvas_top = "10px";
 export const fifo_canvas_right = "-200px";

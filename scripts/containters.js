@@ -1,6 +1,6 @@
 import {Block1, Block2, Block3, Block4, Block5, Block6, Block7} from "./blocks.js";
-import {black_window_size} from "./variables.js";
 import {
+    black_window_size,
     black_window_central_block_x,
     black_window_central_block_y,
     black_window_size_of_block,
