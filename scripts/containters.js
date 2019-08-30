@@ -1,4 +1,18 @@
 import {Block1, Block2, Block3, Block4, Block5, Block6, Block7} from "./blocks.js";
+import {black_window_size} from "./variables.js";
+import {
+    black_window_central_block_x,
+    black_window_central_block_y,
+    black_window_size_of_block,
+    color_of_block1,
+    color_of_block2,
+    color_of_block3,
+    color_of_block4,
+    color_of_block5, color_of_block6, color_of_block7,
+    game_canvas_height,
+    game_canvas_width, game_grid_color,
+    game_higher_part_color
+} from "./variables.js";
 
 export class BlackWindow{
     constructor(context){
@@ -14,7 +28,7 @@ export class BlackWindow{
     }
 
     clearCanvas(){
-        this.ctx.clearRect(0, 0, 50, 50);
+        this.ctx.clearRect(0, 0, black_window_size, black_window_size);
     }
 
     drawCanvas(){
@@ -22,14 +36,16 @@ export class BlackWindow{
         if(this.block){
             this.ctx.fillStyle = this.block.getColorOfBlock();
 
-            //??? is that necessary? don't i draw all the things in the loop below?
-            this.ctx.fillRect(20, 20, 9, 9);
-            //??? todo
-
             let loc = this.block.getLocations();
+            let x = this.block.x;
+            let y = this.block.y;
             for(let i = 0; i < loc.length; i++){
                 let coords = loc[i];
-                this.ctx.fillRect(20 + 10 * coords.x, 20 + 10*coords.y, 9, 9);
+                this.ctx.fillRect(black_window_central_block_x
+                    - (black_window_size_of_block + 1) * (coords.x - x),
+                    black_window_central_block_y
+                    + (black_window_size_of_block + 1)*(coords.y - y),
+                    black_window_size_of_block, black_window_size_of_block);
             }
         }
     }
@@ -342,7 +358,7 @@ export class GameWindow {
     }
 
     clearCanvas(){
-        this.ctx.clearRect(0, 0, 279, 559);
+        this.ctx.clearRect(0, 0, game_canvas_width, game_canvas_height);
     }
 
     drawCanvas(){
@@ -351,36 +367,36 @@ export class GameWindow {
         for(let x = 0; x < 10; x++){
             for(let y = 0; y < 20; y++){
                 if(y > 15){
-                    this.ctx.fillStyle = "#f08080";
+                    this.ctx.fillStyle = game_higher_part_color;
                     this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                 }
                 switch (this.area[x][y]) {
                     case 1:
-                        this.ctx.fillStyle = "#ff7c00";
+                        this.ctx.fillStyle = color_of_block1;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 2:
-                        this.ctx.fillStyle = "#0000ff";
+                        this.ctx.fillStyle = color_of_block2;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 3:
-                        this.ctx.fillStyle = "#ffff00";
+                        this.ctx.fillStyle = color_of_block3;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 4:
-                        this.ctx.fillStyle = "#ff00ff";
+                        this.ctx.fillStyle = color_of_block4;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 5:
-                        this.ctx.fillStyle = "#00bfff";
+                        this.ctx.fillStyle = color_of_block5;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 6:
-                        this.ctx.fillStyle = "#00cc00";
+                        this.ctx.fillStyle = color_of_block6;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                     case 7:
-                        this.ctx.fillStyle = "#ff0000";
+                        this.ctx.fillStyle = color_of_block7;
                         this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
                         break;
                 }
@@ -399,19 +415,19 @@ export class GameWindow {
             }
         }
 
-        this.ctx.strokeStyle = "#d3d3d3";
+        this.ctx.strokeStyle = game_grid_color;
         this.ctx.lineWidth = 1;
         this.ctx.beginPath();
         for(let x = 1; x < 10; x++){
             this.ctx.moveTo((x * 28) - 1, 0);
-            this.ctx.lineTo((x * 28) - 1, 559);
+            this.ctx.lineTo((x * 28) - 1, game_canvas_height);
         }
         this.ctx.stroke();
 
         this.ctx.beginPath();
         for(let y = 1; y < 20; y++){
             this.ctx.moveTo(0, (y * 28) - 1);
-            this.ctx.lineTo(279, (y * 28) - 1);
+            this.ctx.lineTo(game_canvas_width, (y * 28) - 1);
         }
         this.ctx.stroke();
     }

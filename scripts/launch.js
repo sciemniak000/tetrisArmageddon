@@ -7,6 +7,7 @@ a.game.fifo.drawFIFO();
 a.game.timer.drawCanvas();
 a.game.s_window.drawCanvas();
 a.game.nextBlock();
+a.game.fifo.drawFIFO();
 
 window.addEventListener("keydown", function (event) {
     if(event.which === 38){
@@ -19,6 +20,8 @@ window.addEventListener("keydown", function (event) {
         a.game.moveBlockDownByOne();
     } else if(event.which === 32){
         a.game.moveBlockDownByAll();
+    } else if(event.which === 90){
+        a.game.shiftBlock();
     }
     console.log(a.game.game.area);
     console.log(a.game.game.block);

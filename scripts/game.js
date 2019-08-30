@@ -5,7 +5,7 @@ export class GameContainer {
         this.s_window = switch_window;
         this.timer = timer;
         this.switch_block_possible = true;
-        this.level = 0;
+        this.level = 50;
         this.intervl = undefined;
     }
 
@@ -63,8 +63,6 @@ export class GameContainer {
 
         //todo add flag that checks if drawing possible to stop it from happening at the end of the game
     }
-
-    //todo when placing the block on the game its positions should be reset
 
 
     checkIfItsTheEnd(){

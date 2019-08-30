@@ -1,3 +1,11 @@
+import {
+    timer_canvas_height,
+    timer_canvas_width,
+    timer_font_color,
+    timer_font_position_x, timer_font_position_y,
+    timer_font_style
+} from "./variables";
+
 export class TetrisTimer {
     constructor(context){
         this.distance = 0;
@@ -21,16 +29,16 @@ export class TetrisTimer {
     }
 
     clearCanvas(){
-        this.ctx.clearRect(0, 0, 100, 100);
+        this.ctx.clearRect(0, 0, timer_canvas_width, timer_canvas_height);
     }
 
     drawCanvas() {
         this.clearCanvas();
 
-        this.ctx.fillStyle = "#ffffff";
-        this.ctx.font = "25px Georgia";
+        this.ctx.fillStyle = timer_font_color;
+        this.ctx.font = timer_font_style;
 
-        this.ctx.fillText(this.minutes + " : " + this.seconds, 5, 65);
+        this.ctx.fillText(this.minutes + " : " + this.seconds, timer_font_position_x, timer_font_position_y);
     }
 
 
