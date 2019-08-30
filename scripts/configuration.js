@@ -49,6 +49,25 @@ export const fifo_canvas_top_top = 10;
 export const fifo_space_between = 20;
 
 // black window drawing of blocks
-export const black_window_central_block_x = 20;
-export const black_window_central_block_y = 20;
-export const black_window_size_of_block = 9;
+export const black_window_central_block1_x = 32;
+export const black_window_central_block1_y = 25;
+
+export const black_window_central_block2_x = 32;
+export const black_window_central_block2_y = 25;
+
+export const black_window_central_block3_x = 22;
+export const black_window_central_block3_y = 22;
+
+export const black_window_central_block4_x = 30;
+export const black_window_central_block4_y = 25;
+
+export const black_window_central_block5_x = 38;
+export const black_window_central_block5_y = 30;
+
+export const black_window_central_block6_x = 30;
+export const black_window_central_block6_y = 23;
+
+export const black_window_central_block7_x = 30;
+export const black_window_central_block7_y = 23;
+
+export const black_window_size_of_block = 15;

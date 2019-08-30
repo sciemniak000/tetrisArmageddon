@@ -8,14 +8,14 @@ import {
     color_of_block7
 } from "./configuration.js";
 
-function clone(obj) {
-    if (null == obj || "object" != typeof obj) return obj;
-    var copy = obj.constructor();
-    for (var attr in obj) {
-        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
-    }
-    return copy;
-}
+// function clone(obj) {
+//     if (null == obj || "object" != typeof obj) return obj;
+//     var copy = obj.constructor();
+//     for (var attr in obj) {
+//         if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+//     }
+//     return copy;
+// }
 class Block{
     constructor(vertical, horizontal) {
         this.rotation = 0;
@@ -42,8 +42,8 @@ class Block{
 // the order of blocks in tables is as in pictures while applying filters - from up left
 // rotation rises clockwise
 export class Block1 extends Block{
-    //   |
     // |||
+    // |
     // this shape above (in rotation 0)
     constructor(vertical, horizontal){
         super(vertical, horizontal);
@@ -52,17 +52,17 @@ export class Block1 extends Block{
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x:this.x, y:this.y + 1}, {x:this.x - 2, y:this.y},
-                    {x:this.x - 1, y:this.y}, {x:this.x, y:this.y}];
-            case 1:
-                return [{x:this.x, y:this.y + 2}, {x:this.x, y:this.y + 1},
-                    {x:this.x, y:this.y}, {x:this.x + 1, y:this.y}];
-            case 2:
                 return [{x:this.x, y:this.y}, {x:this.x + 1, y:this.y},
-                    {x:this.x + 2, y:this.y}, {x:this.x, y:this.y - 1}];
+                    {x:this.x - 1, y:this.y}, {x:this.x - 1, y:this.y - 1}];
+            case 1:
+                return [{x:this.x, y:this.y}, {x:this.x, y:this.y + 1},
+                    {x:this.x, y:this.y - 1}, {x:this.x + 1, y:this.y - 1}];
+            case 2:
+                return [{x:this.x, y:this.y}, {x:this.x - 1, y:this.y},
+                    {x:this.x + 1, y:this.y}, {x:this.x + 1, y:this.y + 1}];
             case 3:
-                return [{x:this.x - 1, y:this.y}, {x:this.x, y:this.y},
-                    {x:this.x, y:this.y - 1}, {x:this.x, y:this.y - 2}];
+                return [{x:this.x, y:this.y}, {x:this.x, y:this.y - 1},
+                    {x:this.x, y:this.y + 1}, {x:this.x - 1, y:this.y + 1}];
         }
     };
     getColorOfBlock(){
@@ -75,8 +75,8 @@ export class Block1 extends Block{
 }
 
 export class Block2 extends Block{
-    // |
     // |||
+    //   |
     // this shape above (in rotation 0)
     constructor(vertical, horizontal){
         super(vertical,horizontal);
@@ -85,17 +85,17 @@ export class Block2 extends Block{
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x: this.x, y: this.y + 1}, {x: this.x, y: this.y},
-                    {x: this.x + 1, y: this.y}, {x: this.x + 2, y: this.y}];
+                return [{x: this.x, y: this.y}, {x: this.x - 1, y: this.y},
+                    {x: this.x + 1, y: this.y}, {x: this.x + 1, y: this.y - 1}];
             case 1:
-                return [{x: this.x, y: this.y}, {x: this.x + 1, y: this.y},
-                    {x: this.x, y: this.y - 1}, {x: this.x, y: this.y - 2}];
+                return [{x: this.x, y: this.y}, {x: this.x, y: this.y - 1},
+                    {x: this.x, y: this.y + 1}, {x: this.x + 1, y: this.y + 1}];
             case 2:
-                return [{x: this.x - 2, y: this.y}, {x: this.x - 1, y: this.y},
-                    {x: this.x, y: this.y}, {x: this.x, y: this.y - 1}];
+                return [{x: this.x, y: this.y}, {x: this.x + 1, y: this.y},
+                    {x: this.x - 1, y: this.y}, {x: this.x - 1, y: this.y + 1}];
             case 3:
-                return [{x: this.x, y: this.y + 2}, {x: this.x, y: this.y + 1},
-                    {x: this.x - 1, y: this.y}, {x: this.x, y: this.y}];
+                return [{x: this.x, y: this.y}, {x: this.x, y: this.y + 1},
+                    {x: this.x, y: this.y - 1}, {x: this.x - 1, y: this.y - 1}];
         }
     };
     getColorOfBlock(){
@@ -135,21 +135,21 @@ export class Block3 extends Block{
 }
 
 export class Block4 extends Block{
-    //  |
     // |||
+    //  |
     // this shape above (in rotation 0)
     getLocations() {
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x:this.x, y:this.y + 1}, {x:this.x - 1, y:this.y},
-                    {x:this.x, y:this.y}, {x:this.x + 1, y:this.y}];
+                return [{x:this.x - 1, y:this.y}, {x:this.x, y:this.y},
+                    {x:this.x + 1, y:this.y}, {x:this.x, y:this.y - 1}];
             case 1:
                 return [{x:this.x, y:this.y + 1}, {x:this.x, y:this.y},
                     {x:this.x + 1, y:this.y}, {x:this.x, y:this.y - 1}];
             case 2:
-                return [{x:this.x - 1, y:this.y}, {x:this.x, y:this.y},
-                    {x:this.x + 1, y:this.y}, {x:this.x, y:this.y - 1}];
+                return [{x:this.x, y:this.y + 1}, {x:this.x - 1, y:this.y},
+                    {x:this.x, y:this.y}, {x:this.x + 1, y:this.y}];
             case 3:
                 return [{x:this.x, y:this.y + 1}, {x:this.x - 1, y:this.y},
                     {x:this.x, y:this.y}, {x:this.x, y:this.y - 1}];
@@ -164,26 +164,19 @@ export class Block4 extends Block{
 }
 
 export class Block5 extends Block{
-    // |
-    // |
-    // |
-    // |
+    // ||||
     // this shape above (in rotation 0)
     getLocations() {
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x: this.x, y: this.y + 1}, {x: this.x, y: this.y},
-                    {x: this.x, y: this.y - 1}, {x: this.x, y: this.y - 2}];
-            case 1:
+            case 2:
                 return [{x: this.x - 2, y: this.y}, {x: this.x - 1, y: this.y},
                     {x: this.x, y: this.y}, {x: this.x + 1, y: this.y}];
-            case 2:
+            case 1:
+            case 3:
                 return [{x: this.x, y: this.y + 2}, {x: this.x, y: this.y + 1},
                     {x: this.x, y: this.y}, {x: this.x, y: this.y - 1}];
-            case 3:
-                return [{x: this.x - 1, y: this.y}, {x: this.x, y: this.y},
-                    {x: this.x + 1, y: this.y}, {x: this.x + 2, y: this.y}];
         }
     };
     getColorOfBlock(){
@@ -202,17 +195,13 @@ export class Block6 extends Block{
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x: this.x, y: this.y + 1}, {x: this.x + 1, y: this.y + 1},
-                    {x: this.x - 1, y: this.y}, {x: this.x, y: this.y}];
-            case 1:
-                return [{x: this.x, y: this.y + 1}, {x: this.x, y: this.y},
-                    {x: this.x + 1, y: this.y}, {x: this.x + 1, y: this.y - 1}];
             case 2:
                 return [{x: this.x, y: this.y}, {x: this.x + 1, y: this.y},
                     {x: this.x - 1, y: this.y - 1}, {x: this.x, y: this.y - 1}];
+            case 1:
             case 3:
-                return [{x: this.x - 1, y: this.y + 1}, {x: this.x - 1, y: this.y},
-                    {x: this.x, y: this.y}, {x: this.x, y: this.y - 1}];
+                return [{x: this.x, y: this.y + 1}, {x: this.x, y: this.y},
+                    {x: this.x + 1, y: this.y}, {x: this.x + 1, y: this.y - 1}];
         }
     };
     getColorOfBlock(){
@@ -231,17 +220,13 @@ export class Block7 extends Block {
         switch (this.rotation) {
             // returns the location of blocks according to rotation
             case 0:
-                return [{x: this.x - 1, y: this.y + 1}, {x: this.x, y: this.y + 1},
-                    {x: this.x, y: this.y}, {x: this.x + 1, y: this.y}];
-            case 1:
-                return [{x: this.x + 1, y: this.y + 1}, {x: this.x, y: this.y},
-                    {x: this.x + 1, y: this.y}, {x: this.x, y: this.y - 1}];
             case 2:
                 return [{x: this.x - 1, y: this.y}, {x: this.x, y: this.y},
                     {x: this.x, y: this.y - 1}, {x: this.x + 1, y: this.y - 1}];
+            case 1:
             case 3:
-                return [{x: this.x, y: this.y + 1}, {x: this.x - 1, y: this.y},
-                    {x: this.x, y: this.y}, {x: this.x - 1, y: this.y - 1}];
+                return [{x: this.x + 1, y: this.y + 1}, {x: this.x, y: this.y},
+                    {x: this.x + 1, y: this.y}, {x: this.x, y: this.y - 1}];
         }
     };
     getColorOfBlock(){

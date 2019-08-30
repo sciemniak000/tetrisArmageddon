@@ -1,8 +1,20 @@
 import {Block1, Block2, Block3, Block4, Block5, Block6, Block7} from "./blocks.js";
 import {
     black_window_size,
-    black_window_central_block_x,
-    black_window_central_block_y,
+    black_window_central_block1_x,
+    black_window_central_block1_y,
+    black_window_central_block2_x,
+    black_window_central_block2_y,
+    black_window_central_block3_x,
+    black_window_central_block3_y,
+    black_window_central_block4_x,
+    black_window_central_block4_y,
+    black_window_central_block5_x,
+    black_window_central_block5_y,
+    black_window_central_block6_x,
+    black_window_central_block6_y,
+    black_window_central_block7_x,
+    black_window_central_block7_y,
     black_window_size_of_block,
     color_of_block1,
     color_of_block2,
@@ -39,14 +51,45 @@ export class BlackWindow{
             let loc = this.block.getLocations();
             let x = this.block.x;
             let y = this.block.y;
+            let central_x = 0;
+            let central_y = 0;
+            switch (this.block.getTypeOfBlock()) {
+                case 1:
+                    central_x = black_window_central_block1_x;
+                    central_y = black_window_central_block1_y;
+                    break;
+                case 2:
+                    central_x = black_window_central_block2_x;
+                    central_y = black_window_central_block2_y;
+                    break;
+                case 3:
+                    central_x = black_window_central_block3_x;
+                    central_y = black_window_central_block3_y;
+                    break;
+                case 4:
+                    central_x = black_window_central_block4_x;
+                    central_y = black_window_central_block4_y;
+                    break;
+                case 5:
+                    central_x = black_window_central_block5_x;
+                    central_y = black_window_central_block5_y;
+                    break;
+                case 6:
+                    central_x = black_window_central_block6_x;
+                    central_y = black_window_central_block6_y;
+                    break;
+                case 7:
+                    central_x = black_window_central_block7_x;
+                    central_y = black_window_central_block7_y;
+                    break;
+            }
             for(let i = 0; i < loc.length; i++){
                 let coords = loc[i];
-                this.ctx.fillRect(black_window_central_block_x
-                    - (black_window_size_of_block + 1) * (coords.x - x),
-                    black_window_central_block_y
-                    + (black_window_size_of_block + 1)*(coords.y - y),
+                this.ctx.fillRect(central_x + (black_window_size_of_block + 1) * (coords.x - x),
+                    central_y - (black_window_size_of_block + 1)*(coords.y - y),
                     black_window_size_of_block, black_window_size_of_block);
             }
+
         }
     }
 }
