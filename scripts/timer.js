@@ -40,6 +40,4 @@ export class TetrisTimer {
 
         this.ctx.fillText(this.minutes + " : " + this.seconds, timer_font_position_x, timer_font_position_y);
     }
-
-
 }

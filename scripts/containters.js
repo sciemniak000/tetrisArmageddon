@@ -328,8 +328,8 @@ export class GameWindow {
     }
 
     blockResetPosition(){
-        this.block.x = 6;
-        this.block.y = 17;
+        this.block.x = 5;
+        this.block.y = 18;
     }
 
     areaCleanOfFullLines(){
