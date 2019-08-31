@@ -30,6 +30,7 @@ export const timer_canvas_height = 30;
 
 // styles of canvases
 export const canvas_border_style = "1px solid #d3d3d3";
+export const canvas_hidden_border_style = "1px solid maroon";
 export const canvas_background_color = "#000000";
 export const game_higher_part_color = "#f08080";
 export const game_grid_color = "#d3d3d3";
@@ -37,6 +38,25 @@ export const timer_font_color = "#ffffff";
 export const timer_font_style = "25px Georgia";
 export const timer_font_position_x = 12;
 export const timer_font_position_y = 23;
+
+// style of menu
+export const menu_buttons_color = "#8a0707";
+export const menu_buttons_x = 55;
+export const menu_buttons_width = 170;
+export const menu_buttons_height = 35;
+export const menu_marked_button_color = "#a431d5";
+export const menu_button_starting_y = 300;
+export const menu_button_distance_y = 25;
+export const menu_button_font = "bold 25px TimesNewRoman";
+export const menu_button_text_color = "#000000";
+export const play_text_position_x = 110;
+export const play_text_position_y = 326;
+export const controls_text_position_x = 90;
+export const controls_text_position_y = 386;
+export const credits_text_position_x = 95;
+export const credits_text_position_y = 446;
+export const menu_logo_position_x = 40;
+export const menu_logo_position_y = 80;
 
 // positioning of canvases
 export const game_canvas_left = "-135px";

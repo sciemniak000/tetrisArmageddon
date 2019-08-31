@@ -2,27 +2,55 @@ import {ApplicationContainer} from "./application.js";
 
 let a = new ApplicationContainer();
 
-a.game.game.drawCanvas();
-a.game.fifo.drawFIFO();
-a.game.timer.drawCanvas();
-a.game.s_window.drawCanvas();
-a.game.nextBlock();
-a.game.fifo.drawFIFO();
+a.hideCanvases();
+a.menu.drawMenu();
 
 window.addEventListener("keydown", function (event) {
     if(event.which === 38){
-        a.game.rotateBlockClockwise();
-    } else if(event.which === 37){
-        a.game.moveBlockLeft();
-    } else if(event.which === 39){
-        a.game.moveBlockRight();
+        a.menu.previousButton();
     } else if(event.which === 40){
-        a.game.moveBlockDownByOne();
+        a.menu.nextButton();
     } else if(event.which === 32){
-        a.game.moveBlockDownByAll();
-    } else if(event.which === 90){
-        a.game.shiftBlock();
+        if(a.menu.inMenu){
+            if(a.menu.marked === 1){
+                a.menu.drawControls();
+                a.menu.inMenu = false;
+            } else if(a.menu.marked === 2){
+                a.menu.drawCredits();
+                a.menu.inMenu = false;
+            }
+        } else {
+            a.menu.drawMenu();
+            a.menu.inMenu = true;
+        }
     }
-    console.log(a.game.game.area);
-    console.log(a.game.game.block);
 });
+
+
+// a.game.game.drawCanvas();
+// a.game.fifo.drawFIFO();
+// a.game.timer.drawCanvas();
+// a.game.s_window.drawCanvas();
+// a.game.nextBlock();
+// a.game.fifo.drawFIFO();
+// a.game.timer.setDistance(7000);
+// a.game.timer.drawCanvas();
+//
+// window.addEventListener("keydown", function (event) {
+//     if(event.which === 38){
+//         a.game.rotateBlockClockwise();
+//     } else if(event.which === 37){
+//         a.game.moveBlockLeft();
+//     } else if(event.which === 39){
+//         a.game.moveBlockRight();
+//     } else if(event.which === 40){
+//         a.game.moveBlockDownByOne();
+//     } else if(event.which === 32){
+//         a.game.moveBlockDownByAll();
+//     } else if(event.which === 90){
+//         a.game.shiftBlock();
+//     } else if(event.which === 70){
+//         a.game.timer.countdownOneSecond();
+//         a.game.timer.drawCanvas();
+//     }
+// });

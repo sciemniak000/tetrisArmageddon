@@ -12,10 +12,14 @@ export class TetrisTimer {
         this.minutes = 0;
         this.seconds = 0;
         this.ctx = context;
+        this.ctx.font = timer_font_style;
+        this.ctx.fillStyle = timer_font_color;
     }
 
     setDistance(distance){
         this.distance = distance;
+        this.minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000 * 60));
+        this.seconds = Math.floor((this.distance % (1000 * 60)) / 1000);
     }
 
     countdownOneSecond(){
@@ -34,9 +38,6 @@ export class TetrisTimer {
 
     drawCanvas() {
         this.clearCanvas();
-
-        this.ctx.fillStyle = timer_font_color;
-        this.ctx.font = timer_font_style;
 
         this.ctx.fillText(this.minutes + " : " + this.seconds, timer_font_position_x, timer_font_position_y);
     }

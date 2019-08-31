@@ -1,7 +1,30 @@
-export class MainMenu {
+import {
+    controls_text_position_x,
+    controls_text_position_y,
+    credits_text_position_x,
+    credits_text_position_y,
+    game_canvas_height,
+    game_canvas_width,
+    menu_button_distance_y,
+    menu_button_font,
+    menu_button_starting_y,
+    menu_button_text_color,
+    menu_buttons_color,
+    menu_buttons_height,
+    menu_buttons_width,
+    menu_buttons_x,
+    menu_logo_position_x,
+    menu_logo_position_y,
+    menu_marked_button_color,
+    play_text_position_x,
+    play_text_position_y
+} from "./configuration.js";
+
+export class MenuContainer {
     constructor(context){
         this.marked = 0;
-        this.context = context;
+        this.inMenu = true;
+        this.ctx = context;
     }
 
     // createMenuCanvas : function(){
@@ -16,56 +39,69 @@ export class MainMenu {
     //     this.canvas.style.display = "block";
     // },
 
-    drawButtons() {
-
-        this.context.fillStyle = "#8a0707";
-        this.context.fillRect(55, 300, 170, 35);
-        this.context.fillRect(55, 360, 170, 35);
-        this.context.fillRect(55, 420, 170, 35);
-
-        this.context.fillStyle = "#a431d5";
-        let marked_coordinate_vertical = 300;
-        if(this.marked === 1){
-            marked_coordinate_vertical = 360;
-        }
-        if(this.marked === 2){
-            marked_coordinate_vertical = 420;
-        }
-
-        this.context.fillRect(55, marked_coordinate_vertical, 170, 35);
-
-
-        this.context.font = "bold 25px TimesNewRoman";
-        this.context.fillStyle = "#000000";
-        this.context.fillText("Play", 110, 326);
-
-        this.context.fillText("Controls", 90, 386);
-
-        this.context.fillText("Credits", 95, 446);
-
-        this.context.fillStyle = "#ffffff";
-        this.context.fillRect(40, 80, 200, 70);
+    clearCanvas(){
+        this.ctx.clearRect(0, 0, game_canvas_width, game_canvas_height);
     }
 
-    // drawMenu() {
-    //
-    //     this.createMenuCanvas();
-    //     this.drawButtons();
-    //
-    //     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-    // },
+    drawMenu() {
+        this.clearCanvas();
 
-    // clear : function() {
-    //     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    // },
+        this.ctx.fillStyle = menu_buttons_color;
+        this.ctx.fillRect(menu_buttons_x, menu_button_starting_y, menu_buttons_width, menu_buttons_height);
+        this.ctx.fillRect(menu_buttons_x, menu_button_starting_y + menu_buttons_height + menu_button_distance_y,
+            menu_buttons_width, menu_buttons_height);
+        this.ctx.fillRect(menu_buttons_x, menu_button_starting_y + 2*(menu_buttons_height + menu_button_distance_y),
+            menu_buttons_width, menu_buttons_height);
+
+        this.ctx.fillStyle = menu_marked_button_color;
+        let marked_coordinate_vertical = menu_button_starting_y +
+            this.marked*(menu_buttons_height + menu_button_distance_y);
+
+        this.ctx.fillRect(menu_buttons_x, marked_coordinate_vertical, menu_buttons_width, menu_buttons_height);
+
+
+        this.ctx.font = menu_button_font;
+        this.ctx.fillStyle = menu_button_text_color;
+        this.ctx.fillText("Play", play_text_position_x, play_text_position_y);
+
+        this.ctx.fillText("Controls", controls_text_position_x, controls_text_position_y);
+
+        this.ctx.fillText("Credits", credits_text_position_x, credits_text_position_y);
+
+        this.ctx.fillStyle = "#ffffff";
+        this.ctx.fillRect(menu_logo_position_x, menu_logo_position_y, 200, 70);
+    }
 
     drawCredits() {
-        this.context.fillStyle = "#ffffff";
-        this.context.fillText("Project by Przemek Indyka", 110, 256);
+        this.clearCanvas();
+        this.ctx.fillStyle = "#ffffff";
+        this.ctx.fillText("Project by Przemek Indyka", 110, 256);
     }
     drawControls() {
-        this.context.fillStyle = "#ffffff";
-        this.context.fillText("Press space", 110, 256);
+        this.clearCanvas();
+        this.ctx.fillStyle = "#ffffff";
+        this.ctx.fillText("Press space", 110, 256);
+    }
+
+    nextButton(){
+        this.marked = (this.marked + 1) % 3;
+        this.drawMenu();
+    }
+
+    previousButton(){
+        this.marked = (this.marked - 1) % 3;
+        this.drawMenu();
+    }
+
+    resetButtonPosition(){
+        this.marked = 0;
+    }
+
+    enterMenu(reset){
+        if(reset) {
+            this.resetButtonPosition();
+        }
+        this.drawMenu();
     }
 }
 

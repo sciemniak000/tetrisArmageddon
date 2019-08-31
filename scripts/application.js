@@ -22,8 +22,11 @@ import {
     timer_canvas_height,
     timer_canvas_id,
     timer_canvas_left,
-    timer_canvas_width
+    timer_canvas_width,
+    color_of_the_background,
+    canvas_hidden_border_style
 } from "./configuration.js";
+import {MenuContainer} from "./menu.js";
 
 export class ApplicationContainer{
     constructor(){
@@ -45,6 +48,7 @@ export class ApplicationContainer{
 
         this.createCanvasStructure();
         this.createGameLogic();
+        this.createMenuLogic();
     }
 
     createGameWindow(){
@@ -147,5 +151,43 @@ export class ApplicationContainer{
         let t = new TetrisTimer(document.getElementById(timer_canvas_id).getContext("2d"));
 
         this.game = new GameContainer(g, f, s, t);
+    }
+
+    createMenuLogic(){
+        this.menu = new MenuContainer(document.getElementById(game_canvas_id).getContext("2d"));
+    }
+
+    hideCanvases(){
+        document.getElementById(switch_canvas_id).style.backgroundColor = color_of_the_background;
+        document.getElementById(switch_canvas_id).style.border = canvas_hidden_border_style;
+        document.getElementById(timer_canvas_id).style.backgroundColor = color_of_the_background;
+        document.getElementById(timer_canvas_id).style.border = canvas_hidden_border_style;
+        document.getElementById(fifo_canvas_id_1).style.backgroundColor = color_of_the_background;
+        document.getElementById(fifo_canvas_id_1).style.border = canvas_hidden_border_style;
+        document.getElementById(fifo_canvas_id_2).style.backgroundColor = color_of_the_background;
+        document.getElementById(fifo_canvas_id_2).style.border = canvas_hidden_border_style;
+        document.getElementById(fifo_canvas_id_3).style.backgroundColor = color_of_the_background;
+        document.getElementById(fifo_canvas_id_3).style.border = canvas_hidden_border_style;
+        document.getElementById(fifo_canvas_id_4).style.backgroundColor = color_of_the_background;
+        document.getElementById(fifo_canvas_id_4).style.border = canvas_hidden_border_style;
+        document.getElementById(fifo_canvas_id_5).style.backgroundColor = color_of_the_background;
+        document.getElementById(fifo_canvas_id_5).style.border = canvas_hidden_border_style;
+    }
+
+    revealCanvases(){
+        document.getElementById(switch_canvas_id).style.backgroundColor = canvas_background_color;
+        document.getElementById(switch_canvas_id).style.border = canvas_border_style;
+        document.getElementById(timer_canvas_id).style.backgroundColor = canvas_background_color;
+        document.getElementById(timer_canvas_id).style.border = canvas_border_style;
+        document.getElementById(fifo_canvas_id_1).style.backgroundColor = canvas_background_color;
+        document.getElementById(fifo_canvas_id_1).style.border = canvas_border_style;
+        document.getElementById(fifo_canvas_id_2).style.backgroundColor = canvas_background_color;
+        document.getElementById(fifo_canvas_id_2).style.border = canvas_border_style;
+        document.getElementById(fifo_canvas_id_3).style.backgroundColor = canvas_background_color;
+        document.getElementById(fifo_canvas_id_3).style.border = canvas_border_style;
+        document.getElementById(fifo_canvas_id_4).style.backgroundColor = canvas_background_color;
+        document.getElementById(fifo_canvas_id_4).style.border = canvas_border_style;
+        document.getElementById(fifo_canvas_id_5).style.backgroundColor = canvas_background_color;
+        document.getElementById(fifo_canvas_id_5).style.border = canvas_border_style;
     }
 }
