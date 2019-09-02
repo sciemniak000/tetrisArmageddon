@@ -6,7 +6,7 @@ export class GameContainer {
         this.timer = timer;
         this.switch_block_possible = true;
         this.level = 50;
-        this.intervl = undefined;
+        this.intervl = null;
     }
 
     shiftBlock(){
@@ -67,13 +67,13 @@ export class GameContainer {
 
     checkIfItsTheEnd(){
         if(this.game.areaCheckIfLost()){
-            //todo stop the interval decrementing height
+            clearInterval(this.intervl);
             console.log("lost");
             document.dispatchEvent(new Event("failure"));
             return true;
         }
         if(this.level <= 28 && this.game.areaCheckIfFixed()){
-            //todo stop the interval decrementing height
+            clearInterval(this.intervl);
             console.log("fixed");
             document.dispatchEvent(new Event("success"));
             return true;
@@ -89,6 +89,32 @@ export class GameContainer {
             }
         }
         this.game.drawCanvas();
+    }
+
+    enableBlockDown(){
+        this.intervl = setInterval((function(self) {
+            return function() {
+                self.moveBlockDownByOne();
+            }
+        })(this), 500);
+    }
+
+    speedUpBlockDown(){
+        clearInterval(this.intervl);
+        this.intervl = setInterval((function(self) {
+            return function() {
+                self.moveBlockDownByOne();
+            }
+        })(this), 100);
+    }
+
+    slowDownBlockDown(){
+        clearInterval(this.intervl);
+        this.intervl = setInterval((function(self) {
+            return function() {
+                self.moveBlockDownByOne();
+            }
+        })(this), 500);
     }
 
     //todo victory and defeat functions all having their counterparts in this.game
