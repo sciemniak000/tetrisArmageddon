@@ -37,6 +37,7 @@ a.game.timer.setDistance(7000);
 a.game.timer.drawCanvas();
 a.game.enableBlockDown();
 
+var down_pressed = false;
 window.addEventListener("keydown", function (event) {
     if(event.which === 38){
         a.game.rotateBlockClockwise();
@@ -45,7 +46,10 @@ window.addEventListener("keydown", function (event) {
     } else if(event.which === 39){
         a.game.moveBlockRight();
     } else if(event.which === 40){
-        a.game.speedUpBlockDown();
+        if(!down_pressed) {
+            a.game.speedUpBlockDown();
+            down_pressed = true;
+        }
     } else if(event.which === 32){
         a.game.moveBlockDownByAll();
     } else if(event.which === 90){
@@ -56,14 +60,10 @@ window.addEventListener("keydown", function (event) {
     }
 });
 
-window.addEventListener("keypress", function (event) {
-    if(event.which === 40){
-        void(0);
-    }
-});
 
 window.addEventListener("keyup", function(event) {
     if(event.which === 40) {
         a.game.slowDownBlockDown();
+        down_pressed = false;
     }
 });

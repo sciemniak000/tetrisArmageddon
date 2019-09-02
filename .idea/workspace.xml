@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c9549ce9-bb8f-436c-ac06-c3406875b137" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/launch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/launch.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+            <state relative-caret-position="169">
+              <caret line="103" column="34" selection-start-line="103" selection-start-column="34" selection-end-line="103" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -62,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/launch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="305">
+              <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -209,7 +208,7 @@
       <workItem from="1563195378256" duration="85506000" />
       <workItem from="1563778333241" duration="18131000" />
       <workItem from="1566409231469" duration="25173000" />
-      <workItem from="1566803852479" duration="79809000" />
+      <workItem from="1566803852479" duration="81019000" />
     </task>
     <task id="LOCAL-00001" summary="Game container half-ready">
       <created>1566806161532</created>
@@ -309,11 +308,25 @@
       <option name="project" value="LOCAL" />
       <updated>1567283910266</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Block down interval added">
+      <created>1567406718869</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1567406718869</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Minor correction to the block down interval">
+      <created>1567407020465</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1567407020465</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261702000" />
+    <option name="totallyTimeSpent" value="262912000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -365,7 +378,9 @@
     <MESSAGE value="Minor bugs fixed" />
     <MESSAGE value="Menu incorporated into the ApplicationContainer" />
     <MESSAGE value="ReadMe corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadMe corrected" />
+    <MESSAGE value="Block down interval added" />
+    <MESSAGE value="Minor correction to the block down interval" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor correction to the block down interval" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/fav_tetris_1.ico">
@@ -454,15 +469,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+        <state relative-caret-position="169">
+          <caret line="103" column="34" selection-start-line="103" selection-start-column="34" selection-end-line="103" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/launch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="305">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
         </state>
       </provider>
     </entry>
