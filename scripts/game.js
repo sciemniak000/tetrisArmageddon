@@ -101,6 +101,7 @@ export class GameContainer {
 
     speedUpBlockDown(){
         clearInterval(this.intervl);
+        this.moveBlockDownByOne();
         this.intervl = setInterval((function(self) {
             return function() {
                 self.moveBlockDownByOne();

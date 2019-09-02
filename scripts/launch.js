@@ -56,6 +56,12 @@ window.addEventListener("keydown", function (event) {
     }
 });
 
+window.addEventListener("keypress", function (event) {
+    if(event.which === 40){
+        void(0);
+    }
+});
+
 window.addEventListener("keyup", function(event) {
     if(event.which === 40) {
         a.game.slowDownBlockDown();
