@@ -118,5 +118,13 @@ export class GameContainer {
         })(this), 500);
     }
 
+    loadLevel(level){
+        this.level = level.getNumberOfLevel();
+        console.log(level.getArea());
+        this.game.copyGameArea(level.getArea());
+        this.timer.setDistance(level.getTimerDistance());
+        this.enableBlockDown();
+    }
+
     //todo victory and defeat functions all having their counterparts in this.game
 }

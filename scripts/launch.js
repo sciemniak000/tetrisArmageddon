@@ -1,4 +1,5 @@
 import {ApplicationContainer} from "./application.js";
+import {level50} from "./levels/level50.js";
 
 let a = new ApplicationContainer();
 
@@ -27,15 +28,15 @@ let a = new ApplicationContainer();
 // });
 
 
-a.game.game.drawCanvas();
-a.game.fifo.drawFIFO();
 a.game.timer.drawCanvas();
 a.game.s_window.drawCanvas();
 a.game.nextBlock();
 a.game.fifo.drawFIFO();
+a.game.game.drawCanvas();
 a.game.timer.setDistance(7000);
 a.game.timer.drawCanvas();
-a.game.enableBlockDown();
+a.game.loadLevel(level50);
+a.game.timer.drawCanvas();
 
 var down_pressed = false;
 window.addEventListener("keydown", function (event) {
