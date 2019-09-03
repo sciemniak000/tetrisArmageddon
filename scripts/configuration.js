@@ -40,7 +40,7 @@ export const timer_font_position_x = 12;
 export const timer_font_position_y = 23;
 
 // style of menu
-export const menu_buttons_color = "#8a0707";
+export const menu_buttons_color = "#a25b00";
 export const menu_buttons_x = 55;
 export const menu_buttons_width = 170;
 export const menu_buttons_height = 35;
@@ -57,6 +57,17 @@ export const credits_text_position_x = 95;
 export const credits_text_position_y = 446;
 export const menu_logo_position_x = 40;
 export const menu_logo_position_y = 80;
+
+// level choosing style
+export const size_of_tile = 44;
+export const interspace_vertical = 11;
+export const interspace_horizontal = 16;
+export const margin_vertical = 10;
+export const number_of_level_font = "bold 30px ComicSans";
+export const number_of_level_x_2_digit = 10;
+export const number_of_level_y_2_digit = 32;
+export const number_of_level_x_1_digit = 16;
+export const number_of_level_y_1_digit = 32;
 
 // positioning of canvases
 export const game_canvas_left = "-135px";

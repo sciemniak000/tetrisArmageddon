@@ -17,7 +17,16 @@ import {
     menu_logo_position_y,
     menu_marked_button_color,
     play_text_position_x,
-    play_text_position_y
+    play_text_position_y,
+    interspace_horizontal,
+    interspace_vertical,
+    margin_vertical,
+    size_of_tile,
+    number_of_level_font,
+    number_of_level_x_1_digit,
+    number_of_level_x_2_digit,
+    number_of_level_y_1_digit,
+    number_of_level_y_2_digit
 } from "./configuration.js";
 
 export class MenuContainer {
@@ -25,7 +34,10 @@ export class MenuContainer {
         this.marked = 0;
         this.inMenu = true;
         this.ctx = context;
+        this.chooseLevels = new ChooseLevelScreen(context);
     }
+
+    // todo the marking can go out of bounds. Repair it.
 
     // createMenuCanvas : function(){
     //     this.canvas.width = 279;
@@ -89,7 +101,7 @@ export class MenuContainer {
     }
 
     previousButton(){
-        this.marked = (this.marked - 1) % 3;
+        this.marked = (this.marked - 1 + 3) % 3;
         this.drawMenu();
     }
 
@@ -105,43 +117,83 @@ export class MenuContainer {
     }
 }
 
-// var listener_menu_1 = function(event){
-//     if(event.which === 38) {
-//         myMenu.marked = (myMenu.marked - 1 + 3) % 3;
-//         myMenu.clear();
-//         myMenu.drawMenu();
-//     } else if(event.which === 40){
-//         myMenu.marked = (myMenu.marked + 1) % 3;
-//         myMenu.clear();
-//         myMenu.drawMenu();
-//     } else if(event.which === 32){
-//         if(myMenu.marked === 1){
-//             document.removeEventListener("keydown", listener_menu_1);
-//             myMenu.clear();
-//             myMenu.drawControls();
-//             document.addEventListener("keydown", listener_menu_2);
-//         } else if(myMenu.marked === 2){
-//             document.removeEventListener("keydown", listener_menu_1);
-//             myMenu.clear();
-//             myMenu.drawCredits();
-//             document.addEventListener("keydown", listener_menu_2);
-//         }
-//     }
-// };
-//
-// var listener_menu_2 = function(event) {
-//     if(event.which === 32){
-//         myMenu.clear();
-//         document.removeEventListener("keydown", listener_menu_2);
-//         myMenu.marked = 0;
-//         myMenu.drawMenu();
-//         document.addEventListener("keydown", listener_menu_1);
-//     }
-// };
-//
-// myMenu.drawMenu();
-// document.addEventListener("DOMContentLoaded", function f(event) {
-//
-//     document.addEventListener("keydown", listener_menu_1);
-//
-// });
+class ChooseLevelScreen {
+    constructor(context){
+        this.ctx = context;
+        this.marked = 0;
+    }
+
+    clearCanvas(){
+        this.ctx.clearRect(0, 0, game_canvas_width, game_canvas_height);
+    }
+
+    drawCanvas(){
+        this.clearCanvas();
+        this.ctx.fillStyle = menu_buttons_color;
+        for(let i = 0; i <= 9; i++){
+            for(let j = -1; j <= 1; j++){
+                this.ctx.fillRect(Math.floor(game_canvas_width / 2) - Math.floor(size_of_tile / 2)
+                + j * (size_of_tile + interspace_horizontal),
+                    margin_vertical + i * (size_of_tile + interspace_vertical),
+                    size_of_tile, size_of_tile);
+            }
+        }
+
+        this.ctx.fillStyle = menu_marked_button_color;
+        let j = this.marked % 3 - 1;
+        let i = Math.floor(this.marked / 3);
+        this.ctx.fillRect(Math.floor(game_canvas_width / 2) - Math.floor(size_of_tile / 2)
+            + j * (size_of_tile + interspace_horizontal),
+            margin_vertical + i * (size_of_tile + interspace_vertical),
+            size_of_tile, size_of_tile);
+
+        this.ctx.fontStyle = number_of_level_font;
+        this.ctx.fillStyle = "black";
+
+        let number_of_level_x = 0;
+        let number_of_level_y = 0;
+
+        for(let i = 0; i <= 9; i++){
+            if(i < 3){
+                number_of_level_x = number_of_level_x_1_digit;
+                number_of_level_y = number_of_level_y_1_digit;
+            } else {
+                number_of_level_x = number_of_level_x_2_digit;
+                number_of_level_y = number_of_level_y_2_digit;
+            }
+            for(let j = -1; j <= 1; j++){
+                this.ctx.fillText(i * 3 + j + 2,Math.floor(game_canvas_width / 2) - Math.floor(size_of_tile / 2)
+                    + j * (size_of_tile + interspace_horizontal) + number_of_level_x,
+                    margin_vertical + i * (size_of_tile + interspace_vertical) + number_of_level_y);
+            }
+        }
+    }
+
+    markedMoveDown(){
+        this.marked = (this.marked + 3) % 30;
+        this.drawCanvas();
+    }
+
+    markedMoveUp(){
+        this.marked = (this.marked - 3 + 30) % 30;
+        this.drawCanvas();
+    }
+
+    markedMoveLeft(){
+        this.marked = Math.floor(this.marked / 3) * 3 + ((this.marked % 3) - 1 + 3) % 3;
+        this.drawCanvas();
+    }
+
+    markedMoveRight(){
+        this.marked = Math.floor(this.marked / 3) * 3 + ((this.marked % 3) + 1) % 3;
+        this.drawCanvas();
+    }
+
+    resetMarkedPosition(){
+        this.marked = 0;
+    }
+
+    getNumberOfChosenLevel(){
+        return this.marked + 1;
+    }
+}
