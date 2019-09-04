@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9549ce9-bb8f-436c-ac06-c3406875b137" name="Default Changelist" comment="">
+    <list default="true" id="c9549ce9-bb8f-436c-ac06-c3406875b137" name="Default Changelist" comment="Menu to choose level is ready">
+      <change afterPath="$PROJECT_DIR$/scripts/listeners.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/configuration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/configuration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/launch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/launch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/tetrisArmageddon.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/tetrisArmageddon.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="196" column="31" selection-start-line="196" selection-start-column="31" selection-end-line="196" selection-end-column="31" />
+            <state relative-caret-position="-390">
+              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
               <folding>
                 <element signature="e#0#625#0" expanded="true" />
               </folding>
@@ -60,11 +61,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/listeners.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1079">
+              <caret line="79" column="74" selection-start-line="79" selection-start-column="74" selection-end-line="79" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/tetrisArmageddon.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/launch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="260">
+              <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -75,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="685">
               <caret line="190" column="84" selection-start-line="190" selection-start-column="84" selection-end-line="190" selection-end-column="84" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
@@ -110,7 +129,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/static/tetrisRagnarok.html" />
-        <option value="$PROJECT_DIR$/static/tetrisArmageddon.html" />
         <option value="$PROJECT_DIR$/scripts/cookies.js" />
         <option value="$PROJECT_DIR$/scripts/variables.js" />
         <option value="$PROJECT_DIR$/scripts/blocks.js" />
@@ -122,9 +140,12 @@
         <option value="$PROJECT_DIR$/scripts/levels/level1.js" />
         <option value="$PROJECT_DIR$/scripts/game.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level50.js" />
-        <option value="$PROJECT_DIR$/scripts/launch.js" />
         <option value="$PROJECT_DIR$/scripts/configuration.js" />
         <option value="$PROJECT_DIR$/scripts/menu.js" />
+        <option value="$PROJECT_DIR$/scripts/levels/listeners.js" />
+        <option value="$PROJECT_DIR$/scripts/launch.js" />
+        <option value="$PROJECT_DIR$/static/tetrisArmageddon.html" />
+        <option value="$PROJECT_DIR$/scripts/listeners.js" />
       </list>
     </option>
   </component>
@@ -159,6 +180,12 @@
             <path>
               <item name="TetrisArmageddon" type="b2602c69:ProjectViewProjectNode" />
               <item name="TetrisArmageddon" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="levels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TetrisArmageddon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TetrisArmageddon" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -174,6 +201,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Przemek\WebstormProjects\TetrisArmageddon\scripts" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -217,7 +249,7 @@
       <workItem from="1563195378256" duration="85506000" />
       <workItem from="1563778333241" duration="18131000" />
       <workItem from="1566409231469" duration="25173000" />
-      <workItem from="1566803852479" duration="98427000" />
+      <workItem from="1566803852479" duration="110333000" />
     </task>
     <task id="LOCAL-00001" summary="Game container half-ready">
       <created>1566806161532</created>
@@ -345,11 +377,18 @@
       <option name="project" value="LOCAL" />
       <updated>1567427258406</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Menu to choose level is ready">
+      <created>1567544784126</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1567544784127</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280320000" />
+    <option name="totallyTimeSpent" value="292226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -405,18 +444,12 @@
     <MESSAGE value="Minor correction to the block down interval" />
     <MESSAGE value="Repeated keydown event ignored" />
     <MESSAGE value="Loading level implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loading level implemented" />
+    <MESSAGE value="Menu to choose level is ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu to choose level is ready" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/fav_tetris_1.ico">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/tetrisArmageddon.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/cookies.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -469,16 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="190" column="84" selection-start-line="190" selection-start-column="84" selection-end-line="190" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -496,16 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/configuration.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-624">
@@ -513,13 +526,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="190" column="84" selection-start-line="190" selection-start-column="84" selection-end-line="190" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="196" column="31" selection-start-line="196" selection-start-column="31" selection-end-line="196" selection-end-column="31" />
+        <state relative-caret-position="-390">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
           <folding>
             <element signature="e#0#625#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/tetrisArmageddon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/listeners.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1079">
+          <caret line="79" column="74" selection-start-line="79" selection-start-column="74" selection-end-line="79" selection-end-column="74" />
         </state>
       </provider>
     </entry>

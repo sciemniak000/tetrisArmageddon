@@ -1,40 +1,44 @@
 import {ApplicationContainer} from "./application.js";
 import {level50} from "./levels/level50.js";
+import {ListenerManager} from "./listeners.js";
 
 let a = new ApplicationContainer();
 
-a.hideCanvases();
-a.menu.drawMenu();
+let l = new ListenerManager(a);
+l.launchApplication();
 
-window.addEventListener("keydown", function (event) {
-    if(event.which === 38){
-        a.menu.previousButton();
-        a.menu.chooseLevels.markedMoveUp();
-    } else if(event.which === 40){
-        a.menu.nextButton();
-        a.menu.chooseLevels.markedMoveDown();
-    } else if(event.which === 37){
-        a.menu.chooseLevels.markedMoveLeft();
-    } else if(event.which === 39){
-        a.menu.chooseLevels.markedMoveRight();
-    } else if(event.which === 32){
-        if(a.menu.inMenu){
-            if(a.menu.marked === 0){
-                a.menu.chooseLevels.drawCanvas();
-                a.menu.inMenu = false;
-            } else if(a.menu.marked === 1){
-                a.menu.drawControls();
-                a.menu.inMenu = false;
-            } else if(a.menu.marked === 2){
-                a.menu.drawCredits();
-                a.menu.inMenu = false;
-            }
-        } else {
-            a.menu.drawMenu();
-            a.menu.inMenu = true;
-        }
-    }
-});
+// a.hideCanvases();
+// a.menu.drawMenu();
+//
+// window.addEventListener("keydown", function (event) {
+//     if(event.which === 38){
+//         a.menu.previousButton();
+//         a.menu.chooseLevels.markedMoveUp();
+//     } else if(event.which === 40){
+//         a.menu.nextButton();
+//         a.menu.chooseLevels.markedMoveDown();
+//     } else if(event.which === 37){
+//         a.menu.chooseLevels.markedMoveLeft();
+//     } else if(event.which === 39){
+//         a.menu.chooseLevels.markedMoveRight();
+//     } else if(event.which === 32){
+//         if(a.menu.inMenu){
+//             if(a.menu.marked === 0){
+//                 a.menu.chooseLevels.drawCanvas();
+//                 a.menu.inMenu = false;
+//             } else if(a.menu.marked === 1){
+//                 a.menu.drawControls();
+//                 a.menu.inMenu = false;
+//             } else if(a.menu.marked === 2){
+//                 a.menu.drawCredits();
+//                 a.menu.inMenu = false;
+//             }
+//         } else {
+//             a.menu.drawMenu();
+//             a.menu.inMenu = true;
+//         }
+//     }
+// });
 
 
 // a.game.timer.drawCanvas();

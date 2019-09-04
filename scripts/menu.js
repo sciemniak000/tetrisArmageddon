@@ -37,8 +37,6 @@ export class MenuContainer {
         this.chooseLevels = new ChooseLevelScreen(context);
     }
 
-    // todo the marking can go out of bounds. Repair it.
-
     // createMenuCanvas : function(){
     //     this.canvas.width = 279;
     //     this.canvas.height = 559;
