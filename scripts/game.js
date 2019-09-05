@@ -120,10 +120,15 @@ export class GameContainer {
 
     loadLevel(level){
         this.level = level.getNumberOfLevel();
-        console.log(level.getArea());
         this.game.copyGameArea(level.getArea());
         this.timer.setDistance(level.getTimerDistance());
-        this.enableBlockDown();
+        this.fifo.resetFIFO();
+        this.s_window.removeBlock();
+        this.nextBlock();
+        this.fifo.drawFIFO();
+        this.s_window.drawCanvas();
+        this.timer.drawCanvas();
+        this.game.drawCanvas();
     }
 
     //todo victory and defeat functions all having their counterparts in this.game

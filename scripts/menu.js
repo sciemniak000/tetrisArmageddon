@@ -191,7 +191,7 @@ class ChooseLevelScreen {
         this.marked = 0;
     }
 
-    getNumberOfChosenLevel(){
-        return this.marked + 1;
+    getIndexOfChosenLevel(){
+        return this.marked;
     }
 }

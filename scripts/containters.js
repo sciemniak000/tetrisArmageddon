@@ -39,6 +39,10 @@ export class BlackWindow{
         return this.block;
     }
 
+    removeBlock(){
+        this.block = null;
+    }
+
     clearCanvas(){
         this.ctx.clearRect(0, 0, black_window_size, black_window_size);
     }
@@ -150,6 +154,13 @@ export class FifoWindows {
     drawFIFO(){
         for(let i = 0; i < this.windows.length; i++){
             this.windows[i].drawCanvas();
+        }
+    }
+
+    resetFIFO(){
+        this.helpful = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7];
+        for(let i = 0; i < 5; i++){
+            this.nextBlock();
         }
     }
 }
@@ -330,6 +341,7 @@ export class GameWindow {
     blockResetPosition(){
         this.block.x = 5;
         this.block.y = 18;
+        this.block.rotation = 0;
     }
 
     areaCleanOfFullLines(){

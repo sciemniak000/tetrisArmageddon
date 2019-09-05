@@ -1,4 +1,5 @@
 import {ApplicationContainer} from "./application.js";
+import {all_levels} from "./levels/list_of_levels.js";
 
 let app = new ApplicationContainer();
 launchApplication();
@@ -97,6 +98,9 @@ function chooseLevelMenuOnkeydownListener(event){
             app.menu.chooseLevels.markedMoveLeft();
             break;
 
-            //todo case 32 - start the game
+        case 32:
+            window.removeEventListener("keydown", chooseLevelMenuOnkeydownListener);
+            app.revealCanvases();
+            app.game.loadLevel(all_levels[app.menu.chooseLevels.getIndexOfChosenLevel()]);
     }
 }
