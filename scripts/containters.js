@@ -23,7 +23,33 @@ import {
     color_of_block5, color_of_block6, color_of_block7,
     game_canvas_height,
     game_canvas_width, game_grid_color,
-    game_higher_part_color
+    game_higher_part_color,
+    info_font_color,
+    info_font_style,
+    info_less_than_28,
+    info_less_than_28_x,
+    info_less_than_28_y,
+    info_more_than_28,
+    info_more_than_28_x,
+    info_more_than_28_y,
+    start_number_font_style,
+    start_number_x,
+    start_number_y,
+    win_screen_label,
+    win_screen_label_x,
+    win_screen_label_y,
+    final_win_screen_label,
+    final_win_screen_label_x,
+    final_win_screen_label_y,
+    lose_screen_label,
+    lose_screen_label_q,
+    lose_screen_label_q_x,
+    lose_screen_label_q_y,
+    lose_screen_label_r,
+    lose_screen_label_r_x,
+    lose_screen_label_r_y,
+    lose_screen_label_x,
+    lose_screen_label_y
 } from "./configuration.js";
 
 export class BlackWindow{
@@ -157,6 +183,12 @@ export class FifoWindows {
         }
     }
 
+    clearFIFO(){
+        for(let i = 0; i < this.windows.length; i++){
+            this.windows[i].clearCanvas();
+        }
+    }
+
     resetFIFO(){
         this.helpful = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7];
         for(let i = 0; i < 5; i++){
@@ -173,6 +205,7 @@ export class GameWindow {
         }
         this.block = undefined;
         this.ctx = context;
+        this.drawing_possible = true;
     }
 
     setBlock(block){
@@ -401,13 +434,13 @@ export class GameWindow {
                 this.area[x][y] = this.area[x][y - 1];
             }
         }
-        let lineBlock = Math.floor(Math.random()*7) + 1;
+
         let emptyIndex = Math.floor(Math.random()*10);
         for(let x = 0; x < 10; x++){
             if(x === emptyIndex){
                 this.area[x][0] = 0;
             } else {
-                this.area[x][0] = lineBlock;
+                this.area[x][0] = Math.floor(Math.random()*7) + 1;
             }
         }
     }
@@ -418,6 +451,7 @@ export class GameWindow {
 
     drawCanvas(){
         this.clearCanvas();
+        console.log("drawn");
 
         for(let x = 0; x < 10; x++){
             for(let y = 0; y < 20; y++){
@@ -485,5 +519,58 @@ export class GameWindow {
             this.ctx.lineTo(game_canvas_width, (y * 28) - 1);
         }
         this.ctx.stroke();
+    }
+
+    drawInfoOnCanvas(number_of_level){
+        if(number_of_level < 29){
+            this.ctx.fillStyle = info_font_color;
+            this.ctx.font = info_font_style;
+            this.ctx.fillText(info_less_than_28, info_less_than_28_x, info_less_than_28_y);
+        } else {
+            this.ctx.fillStyle = info_font_color;
+            this.ctx.font = info_font_style;
+            this.ctx.fillText(info_more_than_28, info_more_than_28_x, info_more_than_28_y);
+        }
+    }
+
+    drawOneOnCanvas(){
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = start_number_font_style;
+        this.ctx.fillText("1", start_number_x, start_number_y);
+    }
+
+    drawTwoOnCanvas(){
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = start_number_font_style;
+        this.ctx.fillText("2", start_number_x, start_number_y);
+    }
+
+    drawThreeOnCanvas(){
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = start_number_font_style;
+        this.ctx.fillText("3", start_number_x, start_number_y);
+    }
+
+    drawWinLevelCanvas(){
+        this.clearCanvas();
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = info_font_style;
+        this.ctx.fillText(win_screen_label, win_screen_label_x, win_screen_label_y);
+    }
+
+    drawWinCanvas(){
+        this.clearCanvas();
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = info_font_style;
+        this.ctx.fillText(final_win_screen_label, final_win_screen_label_x, final_win_screen_label_y);
+    }
+
+    drawLoseCanvas(){
+        this.clearCanvas();
+        this.ctx.fillStyle = info_font_color;
+        this.ctx.font = info_font_style;
+        this.ctx.fillText(lose_screen_label, lose_screen_label_x, lose_screen_label_y);
+        this.ctx.fillText(lose_screen_label_q, lose_screen_label_q_x, lose_screen_label_q_y);
+        this.ctx.fillText(lose_screen_label_r, lose_screen_label_r_x, lose_screen_label_r_y);
     }
 }

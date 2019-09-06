@@ -172,6 +172,10 @@ export class ApplicationContainer{
         document.getElementById(fifo_canvas_id_4).style.border = canvas_hidden_border_style;
         document.getElementById(fifo_canvas_id_5).style.backgroundColor = color_of_the_background;
         document.getElementById(fifo_canvas_id_5).style.border = canvas_hidden_border_style;
+
+        this.game.timer.clearCanvas();
+        this.game.s_window.clearCanvas();
+        this.game.fifo.clearFIFO();
     }
 
     revealCanvases(){

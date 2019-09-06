@@ -145,7 +145,7 @@ class ChooseLevelScreen {
             margin_vertical + i * (size_of_tile + interspace_vertical),
             size_of_tile, size_of_tile);
 
-        this.ctx.fontStyle = number_of_level_font;
+        this.ctx.font = number_of_level_font;
         this.ctx.fillStyle = "black";
 
         let number_of_level_x = 0;

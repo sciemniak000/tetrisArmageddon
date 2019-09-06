@@ -63,10 +63,10 @@ export const size_of_tile = 44;
 export const interspace_vertical = 11;
 export const interspace_horizontal = 16;
 export const margin_vertical = 10;
-export const number_of_level_font = "bold 30px ComicSans";
-export const number_of_level_x_2_digit = 10;
+export const number_of_level_font = "bold 28px ComicSans";
+export const number_of_level_x_2_digit = 9;
 export const number_of_level_y_2_digit = 32;
-export const number_of_level_x_1_digit = 16;
+export const number_of_level_x_1_digit = 15;
 export const number_of_level_y_1_digit = 32;
 
 // positioning of canvases
@@ -102,3 +102,33 @@ export const black_window_central_block7_x = 30;
 export const black_window_central_block7_y = 23;
 
 export const black_window_size_of_block = 15;
+
+// starting the game
+export const info_font_color = "#ffffff";
+export const info_font_style = "bold 50px ComicSans";
+export const info_less_than_28_x = 15;
+export const info_less_than_28_y = 150;
+export const info_less_than_28 = "Clean it up!";
+export const info_more_than_28_x = 28;
+export const info_more_than_28_y = 150;
+export const info_more_than_28 = "Stay alive!";
+export const start_number_font_style = "bold 200px ComicSans";
+export const start_number_x = 89;
+export const start_number_y = 400;
+
+// win and lose screen
+export const win_screen_label_x = 20;
+export const win_screen_label_y = 200;
+export const win_screen_label = "Level passed!";
+export const final_win_screen_label_x = 20;
+export const final_win_screen_label_y = 200;
+export const final_win_screen_label = "Congratulations!";
+export const lose_screen_label_x = 20;
+export const lose_screen_label_y = 200;
+export const lose_screen_label = "You lose.";
+export const lose_screen_label_q_x = 20;
+export const lose_screen_label_q_y = 200;
+export const lose_screen_label_q = "q - go back to menu";
+export const lose_screen_label_r_x = 20;
+export const lose_screen_label_r_y = 200;
+export const lose_screen_label_r = "r - try again";

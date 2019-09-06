@@ -100,7 +100,137 @@ function chooseLevelMenuOnkeydownListener(event){
 
         case 32:
             window.removeEventListener("keydown", chooseLevelMenuOnkeydownListener);
+            window.addEventListener("start", afterWaitingForTheLevelToStart);
             app.revealCanvases();
             app.game.loadLevel(all_levels[app.menu.chooseLevels.getIndexOfChosenLevel()]);
+            app.game.makeTheCountdown();
+    }
+}
+
+function afterWaitingForTheLevelToStart(){
+    window.removeEventListener("start", afterWaitingForTheLevelToStart);
+    window.addEventListener("keydown", gameControlsOnkeydownListener);
+    window.addEventListener("keyup", gameControlsOnkeyupListener);
+    window.addEventListener("win", gameWinListener);
+    window.addEventListener("lose", gameLoseListener);
+    app.game.game.drawCanvas();
+    app.game.enableBlockDown();
+    if(app.game.level > 28){
+        //todo enable rising death
+    }
+    app.game.timer.startCountdown(app.game.level);
+}
+
+function gameControlsOnkeydownListener(event) {
+    switch (event.which) {
+        case 90:
+            app.game.shiftBlock();
+            break;
+
+        case 88:
+            app.game.rotateBlockCounterclockwise();
+            break;
+
+        case 67:
+            app.game.rotateBlockClockwise();
+            break;
+
+        case 37:
+            app.game.moveBlockLeft();
+            break;
+
+        case 39:
+            app.game.moveBlockRight();
+            break;
+
+        case 40:
+            if(!app.game.game_down_pressed){
+                app.game.game_down_pressed = true;
+                app.game.speedUpBlockDown();
+            }
+            break;
+
+        case 32:
+            app.game.moveBlockDownByAll();
+            break;
+    }
+}
+
+function gameControlsOnkeyupListener(event) {
+    if(event.which === 40){
+        app.game.slowDownBlockDown();
+        app.game.game_down_pressed = false;
+    }
+}
+
+function gameWinListener() {
+    window.removeEventListener("keydown", gameControlsOnkeydownListener);
+    window.removeEventListener("keyup", gameControlsOnkeyupListener);
+    window.removeEventListener("win", gameWinListener);
+    window.removeEventListener("lose", gameLoseListener);
+
+    app.game.disableBlockDown();
+    app.game.timer.stopCountdown();
+    if(app.game.level > 28){
+        //todo disable rising death
+    }
+    if(app.game.level < 30) {
+        window.addEventListener("start", afterWaitingForTheLevelToStart);
+        app.game.game.drawWinLevelCanvas();
+        setTimeout(function () {
+
+            //index of level array which is one lower than the actual number of level
+            app.game.loadLevel(all_levels[app.game.level -1 + 1]);
+            app.game.makeTheCountdown();
+        }, 3000);
+    } else {
+        app.game.game.drawWinCanvas();
+        window.addEventListener("keydown", finalWinOnkeydownListener);
+    }
+}
+
+function gameLoseListener() {
+    window.removeEventListener("keydown", gameControlsOnkeydownListener);
+    window.removeEventListener("keyup", gameControlsOnkeyupListener);
+    window.removeEventListener("win", gameWinListener);
+    window.removeEventListener("lose", gameLoseListener);
+
+    app.game.disableBlockDown();
+    app.game.timer.stopCountdown();
+    if(app.game.level > 28){
+        //todo disable rising death
+    }
+    window.addEventListener("keydown", loseOnkeydownListener);
+    app.game.game.drawLoseCanvas();
+}
+
+function loseOnkeydownListener(event){
+    switch (event.which) {
+        case 81:
+            app.hideCanvases();
+            window.removeEventListener("keydown", loseOnkeydownListener);
+            window.addEventListener("keydown", mainMenuOnkeydownListener);
+            app.menu.resetButtonPosition();
+            app.menu.drawMenu();
+            break;
+
+        case 82:
+            window.removeEventListener("keydown", loseOnkeydownListener);
+            window.addEventListener("start", afterWaitingForTheLevelToStart);
+            app.game.loadLevel(all_levels[app.game.level - 1]);
+            app.game.makeTheCountdown();
+            break;
+    }
+}
+
+function finalWinOnkeydownListener(event) {
+    switch (event.which) {
+        case 81:
+            app.hideCanvases();
+            window.removeEventListener("keydown", finalWinOnkeydownListener);
+            window.addEventListener("keydown", mainMenuOnkeydownListener);
+            app.menu.resetButtonPosition();
+            app.menu.drawMenu();
+            break;
     }
 }

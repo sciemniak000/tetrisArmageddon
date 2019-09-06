@@ -14,6 +14,7 @@ export class TetrisTimer {
         this.ctx = context;
         this.ctx.font = timer_font_style;
         this.ctx.fillStyle = timer_font_color;
+        this.countdown = null;
     }
 
     setDistance(distance){
@@ -40,5 +41,27 @@ export class TetrisTimer {
         this.clearCanvas();
 
         this.ctx.fillText(this.minutes + " : " + this.seconds, timer_font_position_x, timer_font_position_y);
+    }
+
+    startCountdown(level){
+        this.countdown = setInterval((function(self) {
+            return function() {
+                if(self.countdownOneSecond()){
+                    clearInterval(self.countdown);
+                    if(level < 29){
+                        window.dispatchEvent(new Event("lose"));
+                    } else {
+                        window.dispatchEvent(new Event("win"));
+                    }
+                }
+                if(self.distance >= 0) {
+                    self.drawCanvas();
+                }
+            }
+        })(this), 1000);
+    }
+
+    stopCountdown(){
+        clearInterval(this.countdown);
     }
 }

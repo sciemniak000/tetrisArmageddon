@@ -7,14 +7,16 @@ export class GameContainer {
         this.switch_block_possible = true;
         this.level = 50;
         this.intervl = null;
+        this.rising_death = null;
+        this.game_down_pressed = false;
     }
 
     shiftBlock(){
         if(this.switch_block_possible){
+            this.game.blockResetPosition();
             let temporary = this.game.getBlock();
             if(this.s_window.getBlock()){
                 this.game.setBlock(this.s_window.getBlock());
-                this.game.blockResetPosition();
             } else {
                 this.nextBlock();
                 this.fifo.drawFIFO();
@@ -66,16 +68,13 @@ export class GameContainer {
 
 
     checkIfItsTheEnd(){
+        console.log("event sent");
         if(this.game.areaCheckIfLost()){
-            clearInterval(this.intervl);
-            console.log("lost");
-            document.dispatchEvent(new Event("failure"));
+            window.dispatchEvent(new Event("lose"));
             return true;
         }
         if(this.level <= 28 && this.game.areaCheckIfFixed()){
-            clearInterval(this.intervl);
-            console.log("fixed");
-            document.dispatchEvent(new Event("success"));
+            window.dispatchEvent(new Event("win"));
             return true;
         }
         return false;
@@ -130,6 +129,41 @@ export class GameContainer {
         this.timer.drawCanvas();
         this.game.drawCanvas();
     }
+
+    makeTheCountdown(){
+        this.game.drawInfoOnCanvas(this.level);
+        window.setTimeout(function () {
+            this.game.drawThreeOnCanvas();
+        }.bind(this), 500);
+        window.setTimeout(function () {
+            this.game.drawCanvas();
+            this.game.drawInfoOnCanvas(this.level);
+            this.game.drawTwoOnCanvas();
+        }.bind(this), 1500);
+        window.setTimeout(function () {
+            this.game.drawCanvas();
+            this.game.drawInfoOnCanvas(this.level);
+            this.game.drawOneOnCanvas();
+        }.bind(this), 2500);
+        window.setTimeout(function () {
+            window.dispatchEvent(new Event("start"));
+        }.bind(this), 3500);
+    }
+
+    disableBlockDown(){
+        clearInterval(this.intervl);
+    }
+
+    riseDeath(){}
+
+    // enableRisingDeath(){
+    //     this.intervl = setInterval((function(self) {
+    //         return function() {
+    //             self.game.areaAddBottomLine();
+    //         }
+    //     })(this), 500);
+    // }
+    // todo rising death in 29 and 30
 
     //todo victory and defeat functions all having their counterparts in this.game
 }

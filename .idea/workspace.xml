@@ -2,38 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9549ce9-bb8f-436c-ac06-c3406875b137" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level10.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level11.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level12.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level13.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level14.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level15.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level16.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level17.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level18.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level19.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level20.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level21.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level22.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level23.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level24.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level25.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level26.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level27.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level28.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level29.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level30.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level6.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level8.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/level9.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/levels/list_of_levels.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/configuration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/configuration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/containters.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/containters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/levels/level1.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/levels/level1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/listeners.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/listeners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/timer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,13 +23,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/levels/list_of_levels.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-267">
-              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state relative-caret-position="646">
+              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/containters.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="452" column="29" selection-start-line="452" selection-start-column="29" selection-end-line="452" selection-end-column="29" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/configuration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="133" column="49" selection-start-line="133" selection-start-column="49" selection-end-line="133" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/listeners.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="219" column="25" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/timer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#179#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/levels/level1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/launch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-182">
+              <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="177" column="35" selection-start-line="177" selection-start-column="35" selection-end-line="177" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,6 +127,19 @@
       <find>bord</find>
       <find>central</find>
       <find>area</find>
+      <find>fontStyle</find>
+      <find>inte</find>
+      <find>draw</find>
+      <find>down</find>
+      <find>window.d</find>
+      <find>document.di</find>
+      <find>intervl</find>
+      <find>reset</find>
+      <find>resetP</find>
+      <find>app.game.level</find>
+      <find>final</find>
+      <find>drawC</find>
+      <find>load</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,22 +152,14 @@
         <option value="$PROJECT_DIR$/scripts/cookies.js" />
         <option value="$PROJECT_DIR$/scripts/variables.js" />
         <option value="$PROJECT_DIR$/scripts/blocks.js" />
-        <option value="$PROJECT_DIR$/scripts/timer.js" />
-        <option value="$PROJECT_DIR$/scripts/containters.js" />
-        <option value="$PROJECT_DIR$/scripts/application.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/scripts/level.js" />
-        <option value="$PROJECT_DIR$/scripts/game.js" />
-        <option value="$PROJECT_DIR$/scripts/configuration.js" />
-        <option value="$PROJECT_DIR$/scripts/menu.js" />
         <option value="$PROJECT_DIR$/scripts/levels/listeners.js" />
         <option value="$PROJECT_DIR$/scripts/launch.js" />
         <option value="$PROJECT_DIR$/static/tetrisArmageddon.html" />
-        <option value="$PROJECT_DIR$/scripts/listeners.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level50.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level29.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level30.js" />
-        <option value="$PROJECT_DIR$/scripts/levels/level1.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level2.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level3.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level4.js" />
@@ -131,6 +188,14 @@
         <option value="$PROJECT_DIR$/scripts/levels/level27.js" />
         <option value="$PROJECT_DIR$/scripts/levels/level28.js" />
         <option value="$PROJECT_DIR$/scripts/levels/list_of_levels.js" />
+        <option value="$PROJECT_DIR$/scripts/menu.js" />
+        <option value="$PROJECT_DIR$/scripts/levels/level1.js" />
+        <option value="$PROJECT_DIR$/scripts/configuration.js" />
+        <option value="$PROJECT_DIR$/scripts/listeners.js" />
+        <option value="$PROJECT_DIR$/scripts/application.js" />
+        <option value="$PROJECT_DIR$/scripts/timer.js" />
+        <option value="$PROJECT_DIR$/scripts/game.js" />
+        <option value="$PROJECT_DIR$/scripts/containters.js" />
       </list>
     </option>
   </component>
@@ -234,7 +299,7 @@
       <workItem from="1563195378256" duration="85506000" />
       <workItem from="1563778333241" duration="18131000" />
       <workItem from="1566409231469" duration="25173000" />
-      <workItem from="1566803852479" duration="115394000" />
+      <workItem from="1566803852479" duration="146324000" />
     </task>
     <task id="LOCAL-00001" summary="Game container half-ready">
       <created>1566806161532</created>
@@ -376,11 +441,25 @@
       <option name="project" value="LOCAL" />
       <updated>1567606335137</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="All level objects were created&#10;&#10;#They are yet not ready though">
+      <created>1567636605158</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1567636605158</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Loading data from level object is ready">
+      <created>1567674290289</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1567674290289</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297287000" />
+    <option name="totallyTimeSpent" value="328217000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -438,7 +517,9 @@
     <MESSAGE value="Loading level implemented" />
     <MESSAGE value="Menu to choose level is ready" />
     <MESSAGE value="Listeners for menu ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Listeners for menu ready" />
+    <MESSAGE value="All level objects were created&#10;&#10;#They are yet not ready though" />
+    <MESSAGE value="Loading data from level object is ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loading data from level object is ready" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/fav_tetris_1.ico">
@@ -461,16 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/blocks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
-          <folding>
-            <element signature="e#0#183#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/level.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -478,81 +549,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/timer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#179#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="122" column="37" selection-start-line="122" selection-start-column="37" selection-end-line="122" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/containters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="158" column="31" lean-forward="true" selection-start-line="158" selection-start-column="31" selection-end-line="158" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/configuration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-624">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="190" column="84" selection-start-line="190" selection-start-column="84" selection-end-line="190" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#625#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/launch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/tetrisArmageddon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/listeners.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -574,13 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/levels/level1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -775,10 +768,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/levels/list_of_levels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
+        <state relative-caret-position="-114">
           <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/blocks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="193" column="12" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/levels/level1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/launch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/configuration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="133" column="49" selection-start-line="133" selection-start-column="49" selection-end-line="133" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="177" column="35" selection-start-line="177" selection-start-column="35" selection-end-line="177" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/timer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/containters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="452" column="29" selection-start-line="452" selection-start-column="29" selection-end-line="452" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/listeners.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="219" column="25" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
