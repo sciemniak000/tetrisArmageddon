@@ -68,7 +68,6 @@ export class GameContainer {
 
 
     checkIfItsTheEnd(){
-        console.log("event sent");
         if(this.game.areaCheckIfLost()){
             window.dispatchEvent(new Event("lose"));
             return true;

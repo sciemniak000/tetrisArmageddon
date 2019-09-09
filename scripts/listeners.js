@@ -101,6 +101,7 @@ function chooseLevelMenuOnkeydownListener(event){
         case 32:
             window.removeEventListener("keydown", chooseLevelMenuOnkeydownListener);
             window.addEventListener("start", afterWaitingForTheLevelToStart);
+            app.game.game.drawing_possible = true;
             app.revealCanvases();
             app.game.loadLevel(all_levels[app.menu.chooseLevels.getIndexOfChosenLevel()]);
             app.game.makeTheCountdown();
@@ -164,6 +165,7 @@ function gameControlsOnkeyupListener(event) {
 }
 
 function gameWinListener() {
+    app.game.game.drawing_possible = false;
     window.removeEventListener("keydown", gameControlsOnkeydownListener);
     window.removeEventListener("keyup", gameControlsOnkeyupListener);
     window.removeEventListener("win", gameWinListener);
@@ -180,6 +182,7 @@ function gameWinListener() {
         setTimeout(function () {
 
             //index of level array which is one lower than the actual number of level
+            app.game.game.drawing_possible = true;
             app.game.loadLevel(all_levels[app.game.level -1 + 1]);
             app.game.makeTheCountdown();
         }, 3000);
@@ -190,6 +193,7 @@ function gameWinListener() {
 }
 
 function gameLoseListener() {
+    app.game.game.drawing_possible = false;
     window.removeEventListener("keydown", gameControlsOnkeydownListener);
     window.removeEventListener("keyup", gameControlsOnkeyupListener);
     window.removeEventListener("win", gameWinListener);
@@ -217,6 +221,7 @@ function loseOnkeydownListener(event){
         case 82:
             window.removeEventListener("keydown", loseOnkeydownListener);
             window.addEventListener("start", afterWaitingForTheLevelToStart);
+            app.game.game.drawing_possible = true;
             app.game.loadLevel(all_levels[app.game.level - 1]);
             app.game.makeTheCountdown();
             break;

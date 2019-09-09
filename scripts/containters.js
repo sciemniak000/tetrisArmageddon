@@ -49,8 +49,14 @@ import {
     lose_screen_label_r_x,
     lose_screen_label_r_y,
     lose_screen_label_x,
-    lose_screen_label_y
+    lose_screen_label_y,
+    win_screen_label_font,
+    final_win_screen_label_font,
+    lose_screen_label_font,
+    lose_screen_label_font_q,
+    lose_screen_label_font_r
 } from "./configuration.js";
+
 
 export class BlackWindow{
     constructor(context){
@@ -450,75 +456,76 @@ export class GameWindow {
     }
 
     drawCanvas(){
-        this.clearCanvas();
-        console.log("drawn");
+        if(this.drawing_possible) {
+            this.clearCanvas();
 
-        for(let x = 0; x < 10; x++){
-            for(let y = 0; y < 20; y++){
-                if(y > 15){
-                    this.ctx.fillStyle = game_higher_part_color;
-                    this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                }
-                switch (this.area[x][y]) {
-                    case 1:
-                        this.ctx.fillStyle = color_of_block1;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 2:
-                        this.ctx.fillStyle = color_of_block2;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 3:
-                        this.ctx.fillStyle = color_of_block3;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 4:
-                        this.ctx.fillStyle = color_of_block4;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 5:
-                        this.ctx.fillStyle = color_of_block5;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 6:
-                        this.ctx.fillStyle = color_of_block6;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
-                    case 7:
-                        this.ctx.fillStyle = color_of_block7;
-                        this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
-                        break;
+            for (let x = 0; x < 10; x++) {
+                for (let y = 0; y < 20; y++) {
+                    if (y > 15) {
+                        this.ctx.fillStyle = game_higher_part_color;
+                        this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                    }
+                    switch (this.area[x][y]) {
+                        case 1:
+                            this.ctx.fillStyle = color_of_block1;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 2:
+                            this.ctx.fillStyle = color_of_block2;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 3:
+                            this.ctx.fillStyle = color_of_block3;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 4:
+                            this.ctx.fillStyle = color_of_block4;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 5:
+                            this.ctx.fillStyle = color_of_block5;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 6:
+                            this.ctx.fillStyle = color_of_block6;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                        case 7:
+                            this.ctx.fillStyle = color_of_block7;
+                            this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                            break;
+                    }
                 }
             }
-        }
 
-        if(this.block){
-            let positions = this.block.getLocations();
-            this.ctx.fillStyle = this.block.getColorOfBlock();
-            let x = 0;
-            let y = 0;
-            for(let i = 0; i < 4; i++){
-                x = positions[i].x;
-                y = positions[i].y;
-                this.ctx.fillRect(x*28, (19 - y)*28, 27, 27);
+            if (this.block) {
+                let positions = this.block.getLocations();
+                this.ctx.fillStyle = this.block.getColorOfBlock();
+                let x = 0;
+                let y = 0;
+                for (let i = 0; i < 4; i++) {
+                    x = positions[i].x;
+                    y = positions[i].y;
+                    this.ctx.fillRect(x * 28, (19 - y) * 28, 27, 27);
+                }
             }
-        }
 
-        this.ctx.strokeStyle = game_grid_color;
-        this.ctx.lineWidth = 1;
-        this.ctx.beginPath();
-        for(let x = 1; x < 10; x++){
-            this.ctx.moveTo((x * 28) - 1, 0);
-            this.ctx.lineTo((x * 28) - 1, game_canvas_height);
-        }
-        this.ctx.stroke();
+            this.ctx.strokeStyle = game_grid_color;
+            this.ctx.lineWidth = 1;
+            this.ctx.beginPath();
+            for (let x = 1; x < 10; x++) {
+                this.ctx.moveTo((x * 28) - 1, 0);
+                this.ctx.lineTo((x * 28) - 1, game_canvas_height);
+            }
+            this.ctx.stroke();
 
-        this.ctx.beginPath();
-        for(let y = 1; y < 20; y++){
-            this.ctx.moveTo(0, (y * 28) - 1);
-            this.ctx.lineTo(game_canvas_width, (y * 28) - 1);
+            this.ctx.beginPath();
+            for (let y = 1; y < 20; y++) {
+                this.ctx.moveTo(0, (y * 28) - 1);
+                this.ctx.lineTo(game_canvas_width, (y * 28) - 1);
+            }
+            this.ctx.stroke();
         }
-        this.ctx.stroke();
     }
 
     drawInfoOnCanvas(number_of_level){
@@ -554,23 +561,27 @@ export class GameWindow {
     drawWinLevelCanvas(){
         this.clearCanvas();
         this.ctx.fillStyle = info_font_color;
-        this.ctx.font = info_font_style;
+        this.ctx.font = win_screen_label_font;
         this.ctx.fillText(win_screen_label, win_screen_label_x, win_screen_label_y);
     }
 
     drawWinCanvas(){
         this.clearCanvas();
         this.ctx.fillStyle = info_font_color;
-        this.ctx.font = info_font_style;
+        this.ctx.font = final_win_screen_label_font;
         this.ctx.fillText(final_win_screen_label, final_win_screen_label_x, final_win_screen_label_y);
     }
 
     drawLoseCanvas(){
         this.clearCanvas();
         this.ctx.fillStyle = info_font_color;
-        this.ctx.font = info_font_style;
+        this.ctx.font = lose_screen_label_font;
         this.ctx.fillText(lose_screen_label, lose_screen_label_x, lose_screen_label_y);
+
+        this.ctx.font = lose_screen_label_font_q;
         this.ctx.fillText(lose_screen_label_q, lose_screen_label_q_x, lose_screen_label_q_y);
+
+        this.ctx.font = lose_screen_label_font_r;
         this.ctx.fillText(lose_screen_label_r, lose_screen_label_r_x, lose_screen_label_r_y);
     }
 }
