@@ -62,8 +62,6 @@ export class GameContainer {
             this.fifo.drawFIFO();
         }
         this.game.drawCanvas();
-
-        //todo add flag that checks if drawing possible to stop it from happening at the end of the game
     }
 
 
@@ -127,6 +125,7 @@ export class GameContainer {
         this.s_window.drawCanvas();
         this.timer.drawCanvas();
         this.game.drawCanvas();
+        this.game_down_pressed = false;
     }
 
     makeTheCountdown(){
@@ -164,5 +163,4 @@ export class GameContainer {
     // }
     // todo rising death in 29 and 30
 
-    //todo victory and defeat functions all having their counterparts in this.game
 }

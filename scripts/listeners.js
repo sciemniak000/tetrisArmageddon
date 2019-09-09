@@ -101,6 +101,8 @@ function chooseLevelMenuOnkeydownListener(event){
         case 32:
             window.removeEventListener("keydown", chooseLevelMenuOnkeydownListener);
             window.addEventListener("start", afterWaitingForTheLevelToStart);
+            window.addEventListener("keydown", waitingForTheLevelKeydownListener);
+            window.addEventListener("keyup", waitingForTheLevelKeyupListener);
             app.game.game.drawing_possible = true;
             app.revealCanvases();
             app.game.loadLevel(all_levels[app.menu.chooseLevels.getIndexOfChosenLevel()]);
@@ -110,16 +112,33 @@ function chooseLevelMenuOnkeydownListener(event){
 
 function afterWaitingForTheLevelToStart(){
     window.removeEventListener("start", afterWaitingForTheLevelToStart);
+    window.removeEventListener("keydown", waitingForTheLevelKeydownListener);
+    window.removeEventListener("keyup", waitingForTheLevelKeyupListener);
     window.addEventListener("keydown", gameControlsOnkeydownListener);
     window.addEventListener("keyup", gameControlsOnkeyupListener);
     window.addEventListener("win", gameWinListener);
     window.addEventListener("lose", gameLoseListener);
     app.game.game.drawCanvas();
     app.game.enableBlockDown();
+    if(app.game.game_down_pressed){
+        app.game.speedUpBlockDown();
+    }
     if(app.game.level > 28){
         //todo enable rising death
     }
     app.game.timer.startCountdown(app.game.level);
+}
+
+function waitingForTheLevelKeydownListener(event) {
+    if(event.which === 40){
+        app.game.game_down_pressed = true;
+    }
+}
+
+function waitingForTheLevelKeyupListener(event) {
+    if(event.which === 40){
+        app.game.game_down_pressed = false;
+    }
 }
 
 function gameControlsOnkeydownListener(event) {
@@ -178,6 +197,8 @@ function gameWinListener() {
     }
     if(app.game.level < 30) {
         window.addEventListener("start", afterWaitingForTheLevelToStart);
+        window.addEventListener("keydown", waitingForTheLevelKeydownListener);
+        window.addEventListener("keyup", waitingForTheLevelKeyupListener);
         app.game.game.drawWinLevelCanvas();
         setTimeout(function () {
 
@@ -221,6 +242,8 @@ function loseOnkeydownListener(event){
         case 82:
             window.removeEventListener("keydown", loseOnkeydownListener);
             window.addEventListener("start", afterWaitingForTheLevelToStart);
+            window.addEventListener("keydown", waitingForTheLevelKeydownListener);
+            window.addEventListener("keyup", waitingForTheLevelKeyupListener);
             app.game.game.drawing_possible = true;
             app.game.loadLevel(all_levels[app.game.level - 1]);
             app.game.makeTheCountdown();
