@@ -55,7 +55,7 @@ export const controls_text_position_x = 90;
 export const controls_text_position_y = 386;
 export const credits_text_position_x = 95;
 export const credits_text_position_y = 446;
-export const menu_logo_position_x = 40;
+export const menu_logo_position_x = 42;
 export const menu_logo_position_y = 80;
 
 // level choosing style

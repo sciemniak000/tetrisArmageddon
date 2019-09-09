@@ -32,9 +32,17 @@ import {
 export class MenuContainer {
     constructor(context){
         this.marked = 0;
-        this.inMenu = true;
         this.ctx = context;
         this.chooseLevels = new ChooseLevelScreen(context);
+        this.logo = null;
+    }
+
+    loadLogoImage(){
+        this.logo = new Image();
+        this.logo.onload = function () {
+            window.dispatchEvent(new Event("imageLoaded"));
+        };
+        this.logo.src = "../static/logo1.png";
     }
 
     // createMenuCanvas : function(){
@@ -78,8 +86,10 @@ export class MenuContainer {
 
         this.ctx.fillText("Credits", credits_text_position_x, credits_text_position_y);
 
-        this.ctx.fillStyle = "#ffffff";
-        this.ctx.fillRect(menu_logo_position_x, menu_logo_position_y, 200, 70);
+        // this.ctx.fillStyle = "#ffffff";
+        // this.ctx.fillRect(menu_logo_position_x, menu_logo_position_y, 200, 70);
+
+        this.ctx.drawImage(this.logo, menu_logo_position_x, menu_logo_position_y);
     }
 
     drawCredits() {

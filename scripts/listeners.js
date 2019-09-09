@@ -2,12 +2,14 @@ import {ApplicationContainer} from "./application.js";
 import {all_levels} from "./levels/list_of_levels.js";
 
 let app = new ApplicationContainer();
-launchApplication();
 
+window.addEventListener("imageLoaded", launchApplication);
+app.menu.loadLogoImage();
 
 //todo potential sound effects also in menu
 
 function launchApplication(){
+    window.removeEventListener("imageLoaded", launchApplication);
     app.hideCanvases();
     window.addEventListener("keydown", mainMenuOnkeydownListener);
     app.menu.drawMenu();
