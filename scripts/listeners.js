@@ -125,6 +125,12 @@ function afterWaitingForTheLevelToStart(){
     if(app.game.game_down_pressed){
         app.game.speedUpBlockDown();
     }
+    if(app.game.game_left_pressed){
+        app.game.launchIntervalLeft();
+    }
+    if(app.game.game_right_pressed){
+        app.game.launchIntervalRight();
+    }
     if(app.game.level > 28){
         //todo enable rising death
     }
@@ -132,14 +138,34 @@ function afterWaitingForTheLevelToStart(){
 }
 
 function waitingForTheLevelKeydownListener(event) {
-    if(event.which === 40){
-        app.game.game_down_pressed = true;
+    switch (event.which) {
+        case 40:
+            app.game.game_down_pressed = true;
+            break;
+
+        case 37:
+            app.game.game_left_pressed = true;
+            break;
+
+        case 39:
+            app.game.game_right_pressed = true;
+            break;
     }
 }
 
 function waitingForTheLevelKeyupListener(event) {
-    if(event.which === 40){
-        app.game.game_down_pressed = false;
+    switch (event.which) {
+        case 40:
+            app.game.game_down_pressed = false;
+            break;
+
+        case 37:
+            app.game.game_left_pressed = false;
+            break;
+
+        case 39:
+            app.game.game_right_pressed = false;
+            break;
     }
 }
 
@@ -158,11 +184,19 @@ function gameControlsOnkeydownListener(event) {
             break;
 
         case 37:
-            app.game.moveBlockLeft();
+            if(!app.game.game_left_pressed){
+                app.game.game_left_pressed = true;
+                app.game.moveBlockLeft();
+                app.game.launchTimeoutLeft();
+            }
             break;
 
         case 39:
-            app.game.moveBlockRight();
+            if(!app.game.game_right_pressed){
+                app.game.game_right_pressed = true;
+                app.game.moveBlockRight();
+                app.game.launchTimeoutRight();
+            }
             break;
 
         case 40:
@@ -179,9 +213,21 @@ function gameControlsOnkeydownListener(event) {
 }
 
 function gameControlsOnkeyupListener(event) {
-    if(event.which === 40){
-        app.game.slowDownBlockDown();
-        app.game.game_down_pressed = false;
+    switch (event.which) {
+        case 40:
+            app.game.slowDownBlockDown();
+            app.game.game_down_pressed = false;
+            break;
+
+        case 37:
+            app.game.clearLeft();
+            app.game.game_left_pressed = false;
+            break;
+
+        case 39:
+            app.game.clearRight();
+            app.game.game_right_pressed = false;
+            break;
     }
 }
 
@@ -193,6 +239,8 @@ function gameWinListener() {
     window.removeEventListener("lose", gameLoseListener);
 
     app.game.disableBlockDown();
+    app.game.clearRight();
+    app.game.clearLeft();
     app.game.timer.stopCountdown();
     if(app.game.level > 28){
         //todo disable rising death
@@ -223,6 +271,8 @@ function gameLoseListener() {
     window.removeEventListener("lose", gameLoseListener);
 
     app.game.disableBlockDown();
+    app.game.clearLeft();
+    app.game.clearRight();
     app.game.timer.stopCountdown();
     if(app.game.level > 28){
         //todo disable rising death

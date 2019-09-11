@@ -137,3 +137,7 @@ export const lose_screen_label_r_x = 20;
 export const lose_screen_label_r_y = 320;
 export const lose_screen_label_font_r = "bold 25px ComicSans";
 export const lose_screen_label_r = "r - try again";
+
+// gameplay
+export const side_timeout_time = 100;
+export const side_interval_time = 50;

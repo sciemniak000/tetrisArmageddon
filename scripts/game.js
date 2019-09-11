@@ -1,3 +1,6 @@
+import {side_interval_time,
+    side_timeout_time} from "./configuration.js";
+
 export class GameContainer {
     constructor(game_window, fifo, switch_window, timer){
         this.game = game_window;
@@ -9,6 +12,12 @@ export class GameContainer {
         this.intervl = null;
         this.rising_death = null;
         this.game_down_pressed = false;
+        this.game_left_pressed = false;
+        this.game_right_pressed = false;
+        this.left_timeout = null;
+        this.left_interval = null;
+        this.right_timeout = null;
+        this.right_interval = null;
     }
 
     shiftBlock(){
@@ -126,6 +135,8 @@ export class GameContainer {
         this.timer.drawCanvas();
         this.game.drawCanvas();
         this.game_down_pressed = false;
+        this.game_left_pressed = false;
+        this.game_right_pressed = false;
     }
 
     makeTheCountdown(){
@@ -151,6 +162,42 @@ export class GameContainer {
     disableBlockDown(){
         clearInterval(this.intervl);
     }
+
+    launchTimeoutLeft(){
+        this.left_timeout = setTimeout(this.launchIntervalLeft.bind(this), side_timeout_time);
+    }
+
+    launchIntervalLeft(){
+        this.left_interval = setInterval((function(self) {
+            return function() {
+                self.moveBlockLeft();
+            }
+        })(this), side_interval_time);
+    }
+
+    clearLeft(){
+        clearTimeout(this.left_timeout);
+        clearInterval(this.left_interval);
+    }
+
+    launchTimeoutRight(){
+        this.right_timeout = setTimeout(this.launchIntervalRight.bind(this), side_timeout_time);
+    }
+
+    launchIntervalRight(){
+        this.right_interval = setInterval((function(self) {
+            return function() {
+                self.moveBlockRight();
+            }
+        })(this), side_interval_time);
+    }
+
+    clearRight(){
+        clearTimeout(this.right_timeout);
+        clearInterval(this.right_interval);
+    }
+
+
 
     riseDeath(){}
 
